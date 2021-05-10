@@ -6,10 +6,10 @@
     - name: "pre-run | update package cache (arch)"
       tags: always
       pacman: update_cache=yes
-      change_when: false
+      changed_when: false
       when: ansible_distribution == "Archlinux"
     - name: "pre-run } update package cache (debian, etc)"
-      tages: always
+      tags: always
       apt: update_cache=yes
-      change_when: false
+      changed_when: false
       when: ansible_distribution in ["Debian", "Ubuntu"]
