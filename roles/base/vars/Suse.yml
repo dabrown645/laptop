@@ -1,0 +1,7 @@
+# Packages
+dconf_package: dconf
+python_psutil_package: psutil
+
+# Misc
+sudo_group: wheel
+#adm_group: Not defined for Suse

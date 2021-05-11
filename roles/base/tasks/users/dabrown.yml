@@ -1,0 +1,37 @@
+---
+- name: users | dabrown | create group 
+  tags: groups,dabrown,users
+  group:
+    name: dabrown
+    state: present
+
+- name: users | dabrown | create users
+  tags: dabrown,sudo,users
+  user:
+    name: dabrown
+    group: dabrown
+#    groups: ansible,{{ sudo_group }}
+    groups: "{{ item }}"
+    state: present
+    comment: "David A Brown"
+    shell: /bin/bash
+  loop:
+      - ansible
+      - "{{ sudo_group }}"
+
+- name: users | dabrown | add to adm grp if exists
+  tags: dabrown,adm,users
+  user:
+    name: dabrown
+    groups: "{{ adm_group }}"
+  when: adm_group is defined
+
+- name: users | dabrown | add sudoers file
+  tags: dabrown,settings,sudo,system,users
+  copy:
+    src: users/sudoers_dabrown
+    dest: /etc/sudoers.d/dabrown
+    owner: root
+    group: root
+    mode: 0440
+
