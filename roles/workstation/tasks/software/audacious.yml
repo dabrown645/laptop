@@ -1,0 +1,16 @@
+---
+- name: software | audacious | install
+  #tags: packages,audacious,install
+  package:
+    name:
+      - audacious
+    state: present
+  when: audacious
+
+- name: software | audacious | remove
+  tags: packages,audacious,remove
+  package:
+    name:
+      - audacious
+    state: absent
+  when: not audacious

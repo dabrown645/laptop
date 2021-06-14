@@ -1,0 +1,24 @@
+---
+- name: theme | gnome prof | intall 
+  ansible.builtin.unarchive:
+    src: gnome/themes/{{ item }}
+    dest: /usr/share/themes
+    owner: root
+    group: root
+  loop:
+    - gnome-professional-40.1-dark.tar.xz
+    - gnome-professional-40.1.tar.xz
+    - gnome-professional-solid-40.1-dark.tar.xz
+    - gnome-professional-solid-40.1.tar.xz
+  when: theme_gnome_prof
+
+- name: theme | and | remove
+  file:
+    state: absent
+    path: /usr/share/themes/{{ item }}
+  loop:
+    - gnome-professional-40.1-dark
+    - gnome-professional-40.1
+    - gnome-professional-solid-40.1-dark
+    - gnome-professional-solid-40.1
+  when: not theme_gnome_prof

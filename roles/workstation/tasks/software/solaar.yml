@@ -1,0 +1,28 @@
+---
+- name: software | solaar | install
+  block:
+    - name: software | solar | install
+      package:
+        name: solaar
+        state: present
+
+    - name: software | solar | don't autostart
+      file:
+        path: /etc/xdg/autostart/solaar.desktop
+        state: absent
+  when:
+    - solaar
+
+- name: software | solaar | removal
+  block:
+    - name: software | solar | removal
+      package:
+        name: solaar
+        state: absent
+
+    - name: software | solar | don't autostart
+      file:
+        path: /etc/xdg/autostart/solaar.desktop
+        state: absent
+  when:
+    - not solaar

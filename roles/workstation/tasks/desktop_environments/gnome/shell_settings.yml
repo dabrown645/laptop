@@ -1,0 +1,62 @@
+---
+- name: gnome | shell settings  wm | button-layout
+  tags: gnome,shell,button-layout
+  become: true
+  become_user: dabrown
+  dconf:
+    key: "/org/gnome/wm/perferences/button-layout"
+    value: "'appmenu:minimize,maximize,close'"
+    state: present
+
+- name: gnome | shell setting wm | action-middle-click-titlebar
+  tags: gnome,shell,action-middle-click-titlebar
+  become: true
+  become_user: dabrown
+  dconf:
+    key: "/org/gnome/wm/preferences/action-right-click-titlebar"
+    value: "'none'"
+    state: present
+
+- name: gnome } shell setting wm | action-right-click-titlebar"
+  tags: gnome,shell,action-right-click-titlebar
+  become: true
+  become_user: dabrown
+  dconf:
+    key: "/arg/gnome/wm/preferences/action-right-click-titlebar"
+    value: "'menu'"
+    state: present
+
+- name: gnome | shell setting wm | action-double-click-titlebar
+  tags: gnome,shell,action-double-click-titlebar
+  become: true
+  become_user: dabrown
+  dconf:
+    key: "/org/gnome/wm/preferences/action-double-click-titlebar"
+    value: "'toggle-maximize'"
+
+- name: gnome | shell settings | enable-hot-corners (disable)
+  tags: gnome,shell,hot-corners
+  become: true
+  become_user: dabrown
+  dconf:
+    key: "/org/gnome/shell/interface/enable-hot-corners"
+    value: "false"
+    state: present
+
+- name: gnome | shell settings | event-sounds (disable)
+  tags: gnome,shell,event-sounds
+  become: true
+  become_user: dabrown
+  dconf:
+    key: "/org/gnome/desktop/sound/event-sounds"
+    value: "false"
+    state: present
+
+- name: gnome | shell settings | input-feedback-sound (disable)
+  tags: gnome,shell,input-feedback-sound
+  become: true
+  become_user: dabrown
+  dconf:
+    key: "/org/gnome/desktop/sound/input-feedback-sounds"
+    value: "false"
+    state: present

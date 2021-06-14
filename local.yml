@@ -15,8 +15,14 @@
       when: ansible_distribution in [ "Debian", "Ubuntu","Pop!_OS" ]
 
 # run roles
-- hosts: localhost
-  tags: base
+#- hosts: all
+#  tags: base
+#  become: true
+#  roles:
+#    - base
+
+- hosts: workstation
+  tags: workstation
   become: true
   roles:
-    - base
+    - workstation

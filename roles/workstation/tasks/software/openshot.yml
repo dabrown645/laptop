@@ -1,0 +1,22 @@
+---
+- name: software | openshot | install
+  package:
+    name:
+      - openshot
+      - openshot-doc
+      - openshot-qt
+      - openshot-qt-doc
+    state: present
+  when:
+    - openshot
+    
+- name: software | openshot | remove
+  package:
+    name:
+      - openshot
+      - openshot-doc
+      - openshot-qt
+      - openshot-qt-doc
+    state: absent
+  when:
+    - not openshot

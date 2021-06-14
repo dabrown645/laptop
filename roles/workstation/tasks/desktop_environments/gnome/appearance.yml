@@ -1,0 +1,76 @@
+---
+- name: gnome | appearance | set wallpaper
+  tags: gnome,gnome-wallpaper
+  dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "'file:///usr/share/backgrounds/dab-grand-canyon.jpg'"
+    state: present
+
+- name: gnome | appearance | set wallpaper position
+  tags: gnome,gnome-wallpaper
+  dconf:
+    key: "/org/gnome/desktop/background/picture-options"
+    value: "'zoom'"
+    state: present
+
+- name: gnome | appearance | set locksreen
+  tags: gnome,gnome-lockscreen
+  dconf:
+    key: "/org/gnome/desktop/screensaver/picture-uri"
+    value: "'file:///usr/share/backgrounds/dab-earth-night.jpg'"
+    state: present
+
+- name: gnome | appearance | set lockscreen position
+  tags: gnome,gnome-lockscreen
+  dconf:
+    key: "/org/gnome/desktop/screensaver/picture-options"
+    value: "'zoom'"
+    state: present
+
+- name: gnome | appearance | clock format
+  tags: gnome,gnome-clock
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-format"
+    value: "'24H'"
+    state: present
+
+- name: gnome | appearance | clock show date
+  tags: gnome,gnome-clock
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-show-date"
+    value: "true"
+    state: present
+
+- name: gnome | appearance | clock show weekday
+  tags: gnome,gnome-clock
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-show-weekday"
+    value: "true"
+    state: present
+
+- name: gnome | appearance | clock don't show seconds
+  tags: gnome,gnome-clock
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-show-seconds"
+    value: "false"
+    state: present
+
+- name: gnome | appearance | show battery
+  tags: gnome,gnome-battery
+  dconf:
+    key: "/org/gnome/desktop/interface/show-battery-percentage"
+    value: "true"
+    state: present
+
+- name: gnome | appearance | gtk theme
+  tags: gnome,gnome-gtk-theme
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Adwaita-dark'"
+    state: present
+
+- name: gnome | appearance | icon them
+  tags: gnome,gnome-icon-theme
+  dconf:
+    key: "/org/gnome/desktop/interface/icon-theme"
+    value: "'Adwaita'"

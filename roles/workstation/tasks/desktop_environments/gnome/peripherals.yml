@@ -1,0 +1,70 @@
+---
+- name: gnome | peripherals | mouse | natural-scroll
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/desktop/peripherals/mouse/natural-scroll"
+    value: "true"
+    state: present
+
+- name: gnome | peripherals | mouse | accel-profile
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/desktop/peripherals/mouse/accel-profile"
+    value: "'adaptive'"
+    state: present
+
+- name: gnome | peripherals | mouse | speed
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/desktop/peripherals/mouse/speed"
+    value: "0.59999999999999998"
+    state: present
+
+- name: gnome | peripherals | touchpad | natural-scroll
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/desktop/peripherals/touchpad/natural-scroll"
+    value: "true"
+    state: present
+
+- name: gnome | peripherals | touchpad | speed
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/desktop/peripherals/touchpad/speed"
+    value: "0.59999999999999998"
+    state: present
+
+- name: gnome | peripherals | power | power-button-action
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/power-button-action"
+    value: "'suspend'"
+    state: present
+
+- name: gnome | peripherals | power | sleep-inactive-ac-type
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type"
+    value: "'suspend'"
+    state: present
+
+- name: gnome | peripherals | power | sleep-inactive-ac-timeout
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-timeout"
+    value: "2700"
+    state: present
+
+- name: gnome | peripherals | power | sleep-inactive-battery-type
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-type"
+    value: "'suspend'"
+    state: present
+
+- name: gnome | peripherals | power | sleep-inactive-battery-timeout
+  tags: gnome,peripherals
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-timeout"
+    value: "1500"
+    state: present

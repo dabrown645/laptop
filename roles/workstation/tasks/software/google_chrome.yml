@@ -1,0 +1,54 @@
+---
+- name: software | google-chrome | installation
+  block:
+    - name: software | google-chrome | add repository key
+      apt_key:
+        url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+        state: present
+
+    - name: software | google-chrome | add repository
+      apt_repository:
+        repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+        filename: google-chrome
+      register: chrome_repo
+
+    - name: software | google-chrome | update sources (repo added or changed)
+      apt:
+        update_cache: yes
+      changed_when: false
+
+    - name: software | google-chrome | install package
+      apt:
+        name: google-chrome-stable
+        state: present
+  when:
+    - google_chrome
+    - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  become: yes
+
+- name: software | google-chrome | remove
+  block:
+    #- name: software | google-chrome | add repository key
+    #  apt_key:
+    #    url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    #    state: absent
+
+    - name: software | google-chrome | add repository
+      apt_repository:
+        repo: "deb [arch=amd64] http://dll.google.com/linux/chrome/deb/ stable main"
+        filename: google-chrome
+        state: absent
+      register: chrome_repo
+
+    - name: software | google-chrome | update sources (repo added or changed)
+      apt:
+        update_cache: yes
+
+    - name: software | google-chrome | remove package
+      apt:
+        name: google-chrome-stable
+        state: absent
+  when:
+    - not google_chrome
+    - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  become: yes

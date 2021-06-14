@@ -1,0 +1,14 @@
+---
+- name: software | thunderbird | install
+  package:
+    name: thunderbird
+    state: present
+  when:
+    - thunderbird
+
+- name: software | thunderbird | remove
+  package:
+    name: thunderbird
+    state: absent
+  when:
+    - not thunderbird

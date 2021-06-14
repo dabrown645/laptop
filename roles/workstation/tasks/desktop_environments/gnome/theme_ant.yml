@@ -1,0 +1,26 @@
+---
+- name: theme | ant | intall 
+  ansible.builtin.unarchive:
+    src: gnome/themes/{{ item }}
+    dest: /usr/share/themes
+    owner: root
+    group: root
+  loop:
+    - Ant-shell-v40.tar.xz
+    - Bloody-shell-v40.tar.xz
+    - Dracula-shell-pink-accent-v40.tar.xz
+    - Dracula-shell-v40.tar.xz
+    - Nebula-shell-v40.tar.xz
+  when: theme_ant
+
+- name: theme | and | remove
+  file:
+    state: absent
+    path: /usr/share/themes/{{ item }}
+  loop:
+    - Ant-shell-v40
+    - Bloody-shell-v40
+    - Dracula-shell-pink-accent-v40
+    - Dracula-shell-v40
+    - Nebula-shell-v40
+  when: not theme_ant

@@ -1,0 +1,17 @@
+- name: gnome | appearance | copy wallpaper file
+  tags: gnome,gnome-wallpaper
+  copy:
+    src: gnome/wallpaper/{{ item }}
+    dest: /usr/share/backgrounds/{{ item }}
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - dab-desk.jpg
+    - dab-earth-night.jpg
+    - dab-forest.jpg
+    - dab-grand-canyon.jpg
+    - dab-linux.jpg
+    - dab-monument-valley.jpg
+    - dab-think.jpg
+    - dab-wave.jpg

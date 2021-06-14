@@ -1,0 +1,39 @@
+---
+- name: theme | pop_os
+  block:
+    - name: theme | pop_os | install
+      block:
+        - name: theme | pop_os | add repository
+          apt_repository:
+            repo: ppa:system76/pop
+            state: present
+
+        - name: theme | pop_os | update Cache
+          apt: update_cache=yes
+
+        - name: theme | pop_os | install
+          apt:
+            name: pop-theme
+            state: present
+      when:
+        - theme_pop_os
+
+    - name: theme | pop_os | remove
+      block:
+        - name: theme | pop_os | add repository
+          apt_repository:
+            repo: ppa:system76/pop
+            state: absent
+
+        - name: theme | pop_os | update Cache
+          apt: update_cache=yes
+
+        - name: theme | pop_os | install
+          apt:
+            name: not pop-theme
+            state: absent
+      when:
+        - theme_pop_os
+        - ansible_distribution in ["Debian", "Ubuntu"]
+  when:
+    - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]

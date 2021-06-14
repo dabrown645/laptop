@@ -1,0 +1,12 @@
+---
+- name: software | keepassxc | install
+  package:
+    name: keepassxc
+    state: present
+  when: keepassxc
+
+- name: software | keepassxc | removal
+  package:
+    name: keepassxc
+    state: absent
+  when: not keepassxc

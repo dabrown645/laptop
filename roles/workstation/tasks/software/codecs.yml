@@ -1,0 +1,8 @@
+---
+- name: software | codecs | install
+  tags: packages,codecs,install
+  package:
+    name:
+      - "{{ gstreamer_libav_package }}"
+      - "{{ gstreamer_plugins_bad_package }}"
+    state: present

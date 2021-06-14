@@ -1,0 +1,14 @@
+---
+- name: software | libreoffice | install
+  package:
+    name: libreoffice
+    state: present
+  when:
+    - libreoffice
+
+- name: software | libreoffice | removal
+  package:
+    name: libreoffice
+    state: absent
+  when:
+    - not libreoffice

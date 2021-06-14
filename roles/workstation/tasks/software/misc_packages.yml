@@ -1,0 +1,27 @@
+---
+- name: software | install workstation distribution packages
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+     - acpid
+     - alsa-utils
+     - "{{ bzip2_package }}"
+     - "{{ cups_package }}"
+     - "{{ cryptsetup_package }}"
+     - dconf-editor
+     - dialog
+     - "{{ font_fira_mono_package }}"
+     - "{{ font_noto_emoji_package }}"
+     - gparted
+     - "{{ hunspell_package }}"
+     - "{{ hyphen_package }}"
+     - "{{ network_manager_openvpn_package }}"
+     - "{{ network_manager_package }}"
+     - "{{ network_manager_pptp_package }}"
+     - neovim
+     - "{{ p7zip_package }}"
+     - pavucontrol
+     - unrar
+     - "{{ wireless_tools_package }}"
+     - "{{ wpa_supplicant_package }}"

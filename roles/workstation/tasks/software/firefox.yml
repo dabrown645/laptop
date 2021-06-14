@@ -1,0 +1,16 @@
+---
+- name: software | firefox | install
+  tags: packages,firefox,install
+  package:
+    name:
+      - firefox
+    state: present
+  when: firefox
+
+- name: software | firefox | remove
+  tags: packages,firefox,remove
+  package:
+    name:
+      - firefox
+    state: absent
+  when: not firefox

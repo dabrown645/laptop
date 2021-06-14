@@ -1,0 +1,35 @@
+---
+- name: gnome | nautilus | tree-view (enable)
+  tags: gnome,nautilus
+  dconf:
+    key: "/org/gnome/nautilus/list-view/use-tree-view"
+    value: "true"
+    state: present
+
+- name: gnome | nautilus | default folder-viewer (list-view)
+  tags: gnome,nautilus
+  dconf:
+    key: "/org/gnome/nautilus/preferences/default-folder-viewer"
+    value: "'list-view'"
+    state: present
+
+- name: gnome | nautilus | click-policy (single)
+  tags: gnome,nautilus
+  dconf:
+    key: "/org/gnome/nautilus/preferences/click-policy"
+    value: "'single'"
+    state: present
+
+- name: gnome | nautilus | executable-text-activation (launch)
+  tags: gnome,nautilus
+  dconf:
+    key: "/org/gnome/nautilus/preferences/executable-text-activation"
+    value: "'launch'"
+    state: present
+
+- name: gnome | nautilus | show-delete-permanently ("true")
+  tags: gnome,nautilus
+  dconf:
+    key: "/org/gnome/nautilus/preferences/show-delete-permanently"
+    value: "true"
+    state: present

@@ -1,0 +1,32 @@
+---
+- name: setup autofs
+  tags: autofs
+  block:
+    - name: autofs | install | packages
+      package:
+        name: autofs
+
+    - name: autofs | start/enable daemon
+      service:
+        name: autofs
+        state: started
+        enabled: true
+
+    - name: autofs | configure auto.master
+      copy:
+        src: autofs/autofs.master
+        dest: "{{ autofs_master_config }}"
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart_autofs
+
+    - name: autofs | configure auto.nfs
+      copy:
+        src: autofs/autofs.nfs
+        dest: "{{ autofs_nfs_config }}"
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart_autofs
+  when: autofs

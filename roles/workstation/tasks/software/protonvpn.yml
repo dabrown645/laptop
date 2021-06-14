@@ -1,0 +1,59 @@
+---
+- name: software | protonvpn
+  block:
+    - name: software | protonvpn | install
+      block:
+        - name: software | protonvpn | add key
+          apt_key:
+            url: https://repo.protonvpn.com/debian/public_key.asc
+            state: present
+
+        - name: software | protonvpn | add repo
+          apt_repository:
+            repo: deb [arch=amd64] https://repo.protonvpn.com/debian unstable main
+            state: present
+            filename: protonvpn
+
+        - name: software | protonvpn | update cache
+          apt:
+            update_cache: true
+          changed_when: false
+
+        - name: software | protonvpn | install
+          package:
+            name:
+            - protonvpn
+            state: present
+
+      when:
+        - protonvpn
+
+    - name: software | protonvpn | remove
+      block:
+        - name: software | protonvpn | remove
+          package:
+            name:
+            - protonvpn
+            state: absent
+
+        - name: software | protonvpn | remove key
+          apt_key:
+            url: https://repo.protonvpn.com/debian/public_key.asc
+            id: 3C33B3B4D0B893BD48A94C2089778FC434617DAF
+            state: absent
+
+        - name: software | protonvpn | remove repo
+          apt_repository:
+            repo: deb [arch=amd64] https://repo.protonvpn.com/debian unstable main
+            state: absent
+            filename: protonvpn
+
+        - name: software | protonvpn | update cache
+          apt:
+            update_cache: true
+          changed_when: false
+
+      when:
+        - not protonvpn
+  when:
+    - ansible_distribution in [ "Debian", "Pop!_OS", "Unbutu"]

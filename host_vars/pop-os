@@ -1,0 +1,63 @@
+branch: master
+
+# ansible configuration
+ansible_cron_minute: "*/15"
+ssh_port: 22
+ssh_users: "dabrown"
+
+# platform-specific
+ansible_python_interpreter: /usr/bin/python3
+microcode_amd_install: false
+microcode_intel_install: true
+
+# Application selection
+audacious: false
+audacity: false
+authy: true
+autofs: false
+bitwarden: false
+brave: true
+caffeine: false
+chromium: false
+darktable: true
+enpass: true
+firefox: true
+foliate: false
+games: false
+glimpse: true
+google_chrome: true
+kdenlive: false
+keepassxc: false
+libreoffice: false
+lutris: false
+mattermost: true
+minecraft: true
+openshot: false
+packer: true
+protonvpn: true
+signal: true
+solaar: false
+spotify: true
+steam: true
+syncthing: true
+thunderbird: true
+virtualbox: true
+
+terraform: true
+todoist: true
+ulauncher: false
+vagrant: true
+vivaldi: true
+vlc: true
+xonotic: true
+
+# themes
+theme_pop_os: true
+theme_ant: false
+theme_gnome_prof: true
+
+# desktop environment section
+gnome: true
+gnome38: true
+gtk3: true
+mate: false
