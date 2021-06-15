@@ -29,5 +29,5 @@
     name:
       - aptitude
       - software-properties-common
-    state: latest
+    state: present
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]

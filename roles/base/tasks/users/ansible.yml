@@ -1,5 +1,5 @@
 ---
-- name: users | ansible | create group 
+- name: users | ansible | create group
   tags: groups,ansible,users
   group:
     name: ansible

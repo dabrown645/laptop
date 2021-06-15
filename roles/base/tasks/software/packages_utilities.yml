@@ -1,7 +1,7 @@
 - name: system setup | utilities | install utility packages
   tags: packages,system,settings
   package:
-    state: latest
+    state: present
     name:
       - at
       - colordiff
@@ -28,11 +28,11 @@
       - "{{ vim_package }}"
       - wget
       - whois
-      
+
 - name: system setup | utilities | install man-pages (arch)
   tags: packages,system,settings,manpage
   pacman:
-    state: latest
+    state: present
     name:
       - man-db
       - man-pages

@@ -3,8 +3,8 @@
   package:
     name:
       - "{{ cron_package }}"
-    state: latest
-  
+    state: present
+
 - name: system setup | cron | start and enable cronie daemon
   tags: cron
   service:

@@ -2,7 +2,7 @@
   tags: clock, system setup
   package:
     name: systemd-timesyncd
-    state: latest
+    state: present
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
 - name: system setup | clock | start and enable systemd-timesyncd

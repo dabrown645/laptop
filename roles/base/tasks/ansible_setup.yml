@@ -2,7 +2,7 @@
   tags: ansible,ansible-setup
   package:
     name: ansible
-    state: latest
+    state: present
 
 - name: ansible setup | install required packages
   tags: ansible,ansible-setup,packages
@@ -10,7 +10,7 @@
     name:
     - "{{ dconf_package }}"
     - "{{ python_psutil_package }}"
-  
+
 # Note: For Arch, the requirement is met by a dependency of systemd, only necessary on Debian-based
 - name: ansible setup | install acl package
   tags: ansible,ansible-setup,packages

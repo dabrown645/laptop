@@ -1,5 +1,5 @@
 ---
-- name: users | dabrown | create group 
+- name: users | dabrown | create group
   tags: groups,dabrown,users
   group:
     name: dabrown

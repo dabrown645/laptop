@@ -12,4 +12,4 @@
       - "{{ python_pyflakes_package }}"
       - python-setuptools
       - "{{ python_virtualenv_package }}"
-    state: latest
+    state: present
