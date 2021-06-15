@@ -9,7 +9,7 @@ AllowUsers {{ ssh_users | default("dabrown") }}
 ChallengeResponseAuthentication no
 HostbasedAuthentication no
 LoginGraceTime 120
-PasswdAuthentication {{ passwd_auth | default("no") }}
+PasswordAuthentication {{ passwd_auth | default("no") }}
 PermitEmptyPasswords no
 PermitRootLogin no
 PubkeyAuthentication yes
@@ -29,4 +29,5 @@ TCPKeepAlive yes
 Subsystem sftp {{ sftp_path }}
 
 # Logging
-SyslogFacility AuthenticationLoglevel INFO
+SyslogFacility AUTH
+LogLevel INFO
