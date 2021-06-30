@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if $(type -P apt >/dev/null) ; then
+    sudo apt install ansible  git
+elif $(type -P zypper >/dev/null); then
+    sudo zypper instal ansible
+else
+    echo OS type not supported
+fi
+
+branch=${1:-main}
+
+ansible-pull -U https://github.com/dabrown645/laptop.git --checkout ${branch}
