@@ -4,7 +4,7 @@
   include_vars: "{{ ansible_os_family }}.yml"
 
 - name: base role
-  - block:
+  block:
     # Make sure users exist on system
     - import_tasks: users/ansible.yml
     - import_tasks: users/dabrown.yml
