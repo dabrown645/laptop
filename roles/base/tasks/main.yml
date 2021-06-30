@@ -28,7 +28,4 @@
     - import_tasks: system_setup/microcode.yml
     - import_tasks: system_setup/openssh.yml
     - import_tasks: system_setup/scripts.yml
-
-  rescue:
-    - name: task failed
-      set_fact: task_failed=true
+  become: true
