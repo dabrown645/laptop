@@ -7,7 +7,7 @@
           apt_key:
             url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
             state: present
-    
+
         - name: software | brave | add repo
           apt_repository:
             repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com stable main
@@ -18,14 +18,14 @@
           apt:
             update_cache: true
           changed_when: false
-    
+
         - name: software | brave | install
           package:
             name:
             - brave-browser
             - brave-keyring
             state: present
-    
+
       when:
         - brave
 
@@ -37,13 +37,13 @@
             - brave-browser
             - brave-keyring
             state: absent
-    
+
         - name: software | brave | remove key
           apt_key:
             url: https://brave-browser-apt-release.s3.brave.com
             id: E41584AB915EA2D2AF4E3FE0B943304595F1D4E3
             state: absent
-    
+
         - name: software | brave | remove repo
           apt_repository:
             repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com stable main
@@ -54,7 +54,7 @@
           apt:
             update_cache: true
           changed_when: false
-    
+
       when:
         - not brave
   when:

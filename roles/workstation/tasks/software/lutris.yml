@@ -8,7 +8,7 @@
           apt_repository:
             repo: 'ppa:lutris-team/lutris'
             state: present
-  
+
         - name: softwar | lutris | install
           package:
             name: lutris
@@ -22,10 +22,10 @@
           apt_repository:
             repo: 'ppa:lutris-team/jutris'
             state: absent
-  
-        - name: softwar | lutris | remov3
+
+        - name: softwar | lutris | remove
           package:
-            name: 
+            name:
               - lutris
               - winetricks
             state: absent
@@ -33,4 +33,3 @@
         - not lutris
   when:
     ansible_distribution in ["Pop!_OS", "Ubuntu"]
-  

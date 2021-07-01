@@ -1,3 +1,4 @@
+---
 # tasks to completed before running roles
 - hosts: localhost
   tags: always
