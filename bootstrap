@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if $(type -P apt >/dev/null) ; then
-    sudo apt install ansible  git
+    sudo apt install ansible git -y
 elif $(type -P zypper >/dev/null); then
-    sudo zypper instal ansible
+    sudo zypper install ansible git -y
 else
     echo OS type not supported
 fi

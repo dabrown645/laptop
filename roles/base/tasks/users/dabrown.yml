@@ -3,14 +3,15 @@
   tags: groups,dabrown,users
   group:
     name: dabrown
+    gid: 2000
     state: present
 
 - name: users | dabrown | create users
   tags: dabrown,sudo,users
   user:
     name: dabrown
+    uid: 2000
     group: dabrown
-#    groups: ansible,{{ sudo_group }}
     groups: "{{ item }}"
     state: present
     comment: "David A Brown"
