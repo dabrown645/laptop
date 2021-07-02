@@ -1,6 +1,6 @@
 ---
 # tasks to completed before running roles
-- hosts: localhost
+- hosts: all
   tags: always
   become: true
   pre_tasks:

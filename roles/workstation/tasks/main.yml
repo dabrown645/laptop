@@ -1,5 +1,5 @@
 ---
-- name: worstation include distribution vars
+- name: workstation include distribution vars
   tags: always
   include_vars: "{{ ansible_distribution }}.yml"
 
@@ -51,11 +51,13 @@
   become: true
 
 - name: software installation
+  tags: software
   block:
     - import_tasks: software/audacious.yml
     - import_tasks: software/audacity.yml
     #- import_tasks: software/authy.yml       - no package
     - import_tasks: software/brave.yml
+      tags: brave
     #- import_tasks: software/bitwarden.yml   - flatpak
     - import_tasks: software/caffeine.yml
     - import_tasks: software/chromium.yml

@@ -27,7 +27,7 @@
             state: present
 
       when:
-        - brave
+        - brave|bool
 
     - name: software | brave | remove
       block:
@@ -56,6 +56,6 @@
           changed_when: false
 
       when:
-        - not brave
+        - not brave|brave
   when:
     - ansible_distribution in [ "Debian", "Pop!_OS", "Unbutu"]
