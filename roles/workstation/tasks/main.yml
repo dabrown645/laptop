@@ -12,9 +12,10 @@
       import_tasks: desktop_environments/gnome/wallpaper.yml
 
     - name: install gnome themes
-      import_tasks: desktop_environments/gnome/theme_ant.yml
-      import_tasks: desktop_environments/gnome/theme_pop.yml
-      import_tasks: desktop_environments/gnome/theme_gnome_prof.yml
+      block:
+        - import_tasks: desktop_environments/gnome/theme_ant.yml
+        - import_tasks: desktop_environments/gnome/theme_pop.yml
+        - import_tasks: desktop_environments/gnome/theme_gnome_prof.yml
 
     - name: configure gnome desktop
       block:
@@ -51,7 +52,10 @@
   become: true
 
 - name: software installation
-  tags: software
+  tags:
+    - software
+    - packages
+    - install
   block:
     - import_tasks: software/audacious.yml
     - import_tasks: software/audacity.yml

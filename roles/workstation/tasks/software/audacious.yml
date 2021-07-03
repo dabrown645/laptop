@@ -1,16 +1,17 @@
 ---
-- name: software | audacious | install
-  #tags: packages,audacious,install
-  package:
-    name:
-      - audacious
-    state: present
-  when: audacious
+- name: audacious
+  tags: audacious
+  block:
+    - name: software | audacious | install
+      package:
+        name:
+          - audacious
+        state: present
+      when: audacious|bool
 
-- name: software | audacious | remove
-  tags: packages,audacious,remove
-  package:
-    name:
-      - audacious
-    state: absent
-  when: not audacious
+    - name: software | audacious | remove
+      package:
+        name:
+          - audacious
+        state: absent
+      when: not audacious|bool
