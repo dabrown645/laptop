@@ -1,20 +1,23 @@
 ---
-- name: software | kdevlive | install
-  package:
-    name:
-      - kdenlive
-      - kdenlive-data
-      - kdenlive-dbg
-    state: present
-  when:
-  - kdenlive
+- name: kdenlive
+  tags: kdenlive
+  block:
+    - name: software | kdenlive | install
+      package:
+        name:
+          - kdenlive
+          - kdenlive-data
+          - kdenlive-dbg
+        state: present
+      when:
+      - kdenlive|bool
 
-- name: software | kdevlive | remove
-  package:
-    name:
-      - kdenlive
-      - kdenlive-data
-      - kdenlive-dbg
-    state: absent
-  when:
-  - not kdenlive
+    - name: software | kdenlive | remove
+      package:
+        name:
+          - kdenlive
+          - kdenlive-data
+          - kdenlive-dbg
+        state: absent
+      when:
+      - not kdenlive|bool
