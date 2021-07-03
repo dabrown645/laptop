@@ -7,11 +7,11 @@
         name:
           - chromium
         state: present
-      when: chromium
+      when: chromium|bool
 
     - name: software | chromium | remove
       package:
         name:
           - chromium
         state: absent
-      when: not chromium
+      when: not chromium|bool
