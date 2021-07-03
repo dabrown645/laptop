@@ -63,3 +63,7 @@ gnome: true
 gnome38: true
 gtk3: true
 mate: false
+
+# gnome desktop packages
+flatpack: true
+snap: false
