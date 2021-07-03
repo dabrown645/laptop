@@ -13,6 +13,7 @@
 
     # Set up the ansible environment
     - import_tasks: ansible_setup.yml
+      tags: ansible,ansible_setup
 
     # Install software
     - import_tasks: software/repositories.yml

@@ -7,7 +7,7 @@
       group:
         name: ansible
         state: present
-    
+
     - name: users | setup sudo
       tags: sudo
       block:
@@ -24,7 +24,7 @@
           loop:
               - ansible
               - "{{ sudo_group }}"
-    
+
         - name: users | add sudoers file
           copy:
             src: users/sudoers_ansible
@@ -32,11 +32,10 @@
             owner: root
             group: root
             mode: 0440
-    
+
     - name: users | add to adm grp if exists
       tags: adm
       user:
         name: ansible
         groups: "{{ adm_group }}"
       when: adm_group is defined
-    
