@@ -1,14 +1,17 @@
 ---
-- name: software | thunderbird | install
-  package:
-    name: thunderbird
-    state: present
-  when:
-    - thunderbird
+- name: thunderbird
+  tags: thunderbird
+  block:
+    - name: software | thunderbird | install
+      package:
+        name: thunderbird
+        state: present
+      when:
+        - thunderbird|bool
 
-- name: software | thunderbird | remove
-  package:
-    name: thunderbird
-    state: absent
-  when:
-    - not thunderbird
+    - name: software | thunderbird | remove
+      package:
+        name: thunderbird
+        state: absent
+      when:
+        - not thunderbird|bool
