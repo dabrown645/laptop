@@ -19,6 +19,7 @@ bitwarden: false
 brave: true
 caffeine: false
 chromium: false
+codex: true
 darktable: true
 enpass: true
 firefox: true
