@@ -1,12 +1,15 @@
 ---
-- name: software | keepassxc | install
-  package:
-    name: keepassxc
-    state: present
-  when: keepassxc
+- name: keepassxc
+  tags: keepassxc
+  block:
+    - name: software | keepassxc | install
+      package:
+        name: keepassxc
+        state: present
+      when: keepassxc|bool
 
-- name: software | keepassxc | removal
-  package:
-    name: keepassxc
-    state: absent
-  when: not keepassxc
+    - name: software | keepassxc | removal
+      package:
+        name: keepassxc
+        state: absent
+      when: not keepassxc|bool
