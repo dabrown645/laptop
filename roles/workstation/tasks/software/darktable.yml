@@ -1,16 +1,17 @@
 ---
-- name: software | darktable | install
-  #tags: packages,darktable,install
-  package:
-    name:
-      - darktable
-    state: present
-  when: darktable
+- name: darktable
+  tags: darktable
+  block:
+    - name: software | darktable | install
+      package:
+        name:
+          - darktable
+        state: present
+      when: darktable|bool
 
-- name: software | darktable | remove
-  tags: packages,darktable,remove
-  package:
-    name:
-      - darktable
-    state: absent
-  when: not darktable
+    - name: software | darktable | remove
+      package:
+        name:
+          - darktable
+        state: absent
+      when: not darktable|bool
