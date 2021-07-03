@@ -1,16 +1,17 @@
 ---
-- name: software | chromium | install
-  #tags: packages,chromium,install
-  package:
-    name:
-      - chromium
-    state: present
-  when: chromium
+- name: chromium
+  tags: chromium
+  block:
+    - name: software | chromium | install
+      package:
+        name:
+          - chromium
+        state: present
+      when: chromium
 
-- name: software | chromium | remove
-  tags: packages,chromium,remove
-  package:
-    name:
-      - chromium
-    state: absent
-  when: not chromium
+    - name: software | chromium | remove
+      package:
+        name:
+          - chromium
+        state: absent
+      when: not chromium
