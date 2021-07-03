@@ -5,9 +5,11 @@
 
 - name: base role
   block:
-    # Make sure users exist on system
-    - import_tasks: users/ansible.yml
-    - import_tasks: users/dabrown.yml
+    - name: Verify users exist
+      tags: users
+      block:
+        - import_tasks: users/ansible.yml
+        - import_tasks: users/dabrown.yml
 
     # Set up the ansible environment
     - import_tasks: ansible_setup.yml

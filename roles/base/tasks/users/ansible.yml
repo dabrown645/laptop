@@ -1,35 +1,42 @@
 ---
-- name: users | ansible | create group
-  tags: groups,ansible,users
-  group:
-    name: ansible
-    state: present
-
-- name: users | ansible | create user
-  tags: ansible,sudo,users
-  user:
-    name: ansible
-    group: ansible
-    groups: "{{ item }}"
-    state: present
-    comment: "David A Brown"
-    shell: /bin/bash
-  loop:
-      - "{{ sudo_group }}"
-
-- name: users | ansible | add to amd qrp
-  tags: ansible,adm,users
-  user:
-    name: ansible
-    groups: "{{ adm_group }}"
-  when: adm_group is defined
-
-#- name: users | ansible | add sudoers file
-#  tags: ansible,settings,sudo,system,users
-#  copy:
-#    src: users/sudoers_ansible
-#    dest: /etc/sudoers/ansible
-#    owner: root
-#    group: root
-#    mode: 0440
-
+- name: setup user ansible
+  tags: ansible
+  block:
+    - name: users | create group
+      tags: groups
+      group:
+        name: ansible
+        state: present
+    
+    - name: users | setup sudo
+      tags: sudo
+      block:
+        - name: users | create users
+          user:
+            name: ansible
+            group: ansible
+            groups: "{{ item }}"
+            state: present
+            comment: "David A Brown - Ansible"
+            shell: /bin/bash
+          environment:
+            umask: 027
+          loop:
+              - ansible
+              - "{{ sudo_group }}"
+    
+        - name: users | add sudoers file
+          copy:
+            src: users/sudoers_ansible
+            dest: /etc/sudoers.d/ansible
+            owner: root
+            group: root
+            mode: 0440
+    
+    - name: users | add to adm grp if exists
+      tags: adm
+      user:
+        name: ansible
+        groups: "{{ adm_group }}"
+      when: adm_group is defined
+    
