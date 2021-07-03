@@ -58,4 +58,4 @@
           when:
             - not enpass|bool
       when:
-        - ansible_distribution in [ "Debian", "Pop!_OS", "Unbutu"]
+        - ansible_distribution in [ "Debian", "Pop!_OS", "Ubuntu"]
