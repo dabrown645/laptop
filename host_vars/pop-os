@@ -33,6 +33,7 @@ libreoffice: false
 lutris: false
 mattermost: true
 minecraft: true
+misc_packages: true
 openshot: false
 packer: true
 protonvpn: true
