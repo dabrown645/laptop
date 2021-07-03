@@ -1,22 +1,25 @@
 ---
-- name: software | openshot | install
-  package:
-    name:
-      - openshot
-      - openshot-doc
-      - openshot-qt
-      - openshot-qt-doc
-    state: present
-  when:
-    - openshot
+- name: openshot
+  tags: openshot
+  block:
+    - name: software | openshot | install
+      package:
+        name:
+          - openshot
+          - openshot-doc
+          - openshot-qt
+          - openshot-qt-doc
+        state: present
+      when:
+        - openshot|bool
 
-- name: software | openshot | remove
-  package:
-    name:
-      - openshot
-      - openshot-doc
-      - openshot-qt
-      - openshot-qt-doc
-    state: absent
-  when:
-    - not openshot
+    - name: software | openshot | remove
+      package:
+        name:
+          - openshot
+          - openshot-doc
+          - openshot-qt
+          - openshot-qt-doc
+        state: absent
+      when:
+        - not openshot|bool
