@@ -1,28 +1,31 @@
 ---
-- name: software | games | install
-  package:
-    name:
-      - chromium-bsu
-      - extremetuxracer
-      - frozen-bubble
-      - gnome-chess
-      - "{{ nethack_package }}"
-      - supertux
-      - supertuxkart
-      - wesnoth
-    state: present
-  when: games
+- name: games
+  tags: games
+  block:
+    - name: software | games | install
+      package:
+        name:
+          - chromium-bsu
+          - extremetuxracer
+          - frozen-bubble
+          - gnome-chess
+          - "{{ nethack_package }}"
+          - supertux
+          - supertuxkart
+          - wesnoth
+        state: present|bool
+      when: games
 
-- name: software | games | remove
-  package:
-    name:
-      - chromium-bsu
-      - extremetuxracer
-      - frozen-bubble
-      - gnome-chess
-      - "{{ nethack_package }}"
-      - supertux
-      - supertuxkart
-      - wesnoth
-    state: absent
-  when: not games
+    - name: software | games | remove
+      package:
+        name:
+          - chromium-bsu
+          - extremetuxracer
+          - frozen-bubble
+          - gnome-chess
+          - "{{ nethack_package }}"
+          - supertux
+          - supertuxkart
+          - wesnoth
+        state: absent
+      when: not games|bool
