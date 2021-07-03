@@ -1,35 +1,38 @@
 ---
-# As of 2020-06-18 lutris is not available on Debian
-- name: software | lutris
+- name: lutris
+  # As of 2020-06-18 lutris is not available on Debian
+  tags: lutris
   block:
-    - name: software | lutris | install
+    - name: software | lutris
       block:
-        - name: software | lutris | add repo
-          apt_repository:
-            repo: 'ppa:lutris-team/lutris'
-            state: present
+        - name: software | lutris | install
+          block:
+            - name: software | lutris | add repo
+              apt_repository:
+                repo: 'ppa:lutris-team/lutris'
+                state: present
 
-        - name: softwar | lutris | install
-          package:
-            name: lutris
-            state: present
+            - name: softwar | lutris | install
+              package:
+                name: lutris
+                state: present
+          when:
+            - lutris|bool
+
+        - name: software | lutris | remove
+          block:
+            - name: software | lutris | remove repo
+              apt_repository:
+                repo: 'ppa:lutris-team/jutris'
+                state: absent
+
+            - name: softwar | lutris | remove
+              package:
+                name:
+                  - lutris
+                  - winetricks
+                state: absent
+          when:
+            - not lutris|bool
       when:
-        - lutris
-
-    - name: software | lutris | remove
-      block:
-        - name: software | lutris | remove repo
-          apt_repository:
-            repo: 'ppa:lutris-team/jutris'
-            state: absent
-
-        - name: softwar | lutris | remove
-          package:
-            name:
-              - lutris
-              - winetricks
-            state: absent
-      when:
-        - not lutris
-  when:
-    ansible_distribution in ["Pop!_OS", "Ubuntu"]
+        ansible_distribution in ["Pop!_OS", "Ubuntu"]
