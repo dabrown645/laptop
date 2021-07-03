@@ -1,59 +1,61 @@
 ---
-- name: software | enpass
+- name: enpass
+  tags: enpass
   block:
-    - name: software | enpass | install
+    - name: software | enpass
       block:
-        - name: software | enpass | add key
-          apt_key:
-            url: https://apt.enpass.io/keys/enpass-linux.key
-            state: present
-
-        - name: software | enpass | add repo
-          apt_repository:
-            repo: deb [arch=amd64] https://apt.enpass.io/ stable main
-            state: present
-            filename: enpass
-
-        - name: software | enpass | update cache
-          apt:
-            update_cache: true
-          changed_when: false
-
         - name: software | enpass | install
-          package:
-            name:
-            - enpass
-            state: present
+          block:
+            - name: software | enpass | add key
+              apt_key:
+                url: https://apt.enpass.io/keys/enpass-linux.key
+                state: present
 
-      when:
-        - enpass
+            - name: software | enpass | add repo
+              apt_repository:
+                repo: deb [arch=amd64] https://apt.enpass.io/ stable main
+                state: present
+                filename: enpass
 
-    - name: software | enpass | remove
-      block:
+            - name: software | enpass | update cache
+              apt:
+                update_cache: true
+              changed_when: false
+
+            - name: software | enpass | install
+              package:
+                name:
+                - enpass
+                state: present
+          when:
+            - enpass|bool
+
         - name: software | enpass | remove
-          package:
-            name:
-            - enpass
-            state: absent
+          block:
+            - name: software | enpass | remove
+              package:
+                name:
+                - enpass
+                state: absent
 
-        - name: software | enpass | remove key
-          apt_key:
-            url: https://apt.enpass.io/keys/enpass-linux.key
-            id: 3C33B3B4D0B893BD48A94C2089778FC434617DAF
-            state: absent
+            - name: software | enpass | remove key
+              apt_key:
+                url: https://apt.enpass.io/keys/enpass-linux.key
+                id: 3C33B3B4D0B893BD48A94C2089778FC434617DAF
+                state: absent
 
-        - name: software | enpass | remove repo
-          apt_repository:
-            repo: deb [arch=amd64] https://apt.enpass.io/ stable main
-            state: absent
-            filename: enpass
+            - name: software | enpass | remove repo
+              apt_repository:
+                repo: deb [arch=amd64] https://apt.enpass.io/ stable main
+                state: absent
+                filename: enpass
 
-        - name: software | enpass | update cache
-          apt:
-            update_cache: true
-          changed_when: false
+            - name: software | enpass | update cache
+              apt:
+                update_cache: true
+              changed_when: false
 
+          when:
+            - not enpass|bool
       when:
-        - not enpass
-  when:
-    - ansible_distribution in [ "Debian", "Pop!_OS", "Unbutu"]
+        - ansible_distribution in [ "Debian", "Pop!_OS", "Unbutu"]
