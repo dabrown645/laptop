@@ -61,7 +61,6 @@
     - import_tasks: software/audacity.yml
     #- import_tasks: software/authy.yml       - no package
     - import_tasks: software/brave.yml
-      tags: brave
     #- import_tasks: software/bitwarden.yml   - flatpak
     - import_tasks: software/caffeine.yml
     - import_tasks: software/chromium.yml

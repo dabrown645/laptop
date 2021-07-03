@@ -1,5 +1,6 @@
 ---
-- name: software | brave
+- name: brave
+  tags: brave
   block:
     - name: software | brave | install
       block:
@@ -56,6 +57,6 @@
           changed_when: false
 
       when:
-        - not brave|brave
+        - not brave|bool
   when:
-    - ansible_distribution in [ "Debian", "Pop!_OS", "Unbutu"]
+    - ansible_distribution in [ "Debian", "Pop!_OS", "Ubuntu"]
