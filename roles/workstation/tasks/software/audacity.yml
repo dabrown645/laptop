@@ -8,7 +8,7 @@
           - audacity
         state: present
       when: audacity|bool
-  
+
     - name: software | audacity | remove
       package:
         name:

@@ -1,16 +1,17 @@
 ---
-- name: software | caffeine | install
-  #tags: packages,caffeine,install
-  package:
-    name:
-      - caffeine
-    state: present
-  when: caffeine
+- name: caffeine
+  tags: caffeine
+  block:
+    - name: software | caffeine | install
+      package:
+        name:
+          - caffeine
+        state: present
+      when: caffeine|bool
 
-- name: software | caffeine | remove
-  tags: packages,caffeine,remove
-  package:
-    name:
-      - caffeine
-    state: absent
-  when: not caffeine
+    - name: software | caffeine | remove
+      package:
+        name:
+          - caffeine
+        state: absent
+      when: not caffeine|bool
