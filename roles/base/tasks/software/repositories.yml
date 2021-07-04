@@ -1,33 +1,38 @@
-- name: system setup | repositories | add ignored packages for archlinux hosts
-  tags: packages, repositories
-  lineinfile:
-    dest: /etc/pacman.conf
-    regexp: "^#IgnorePkg"
-    line: "IgnorePkg = ansible linux linux linux-headers linux-lts linux-lts-headers"
-  when: ansible_distribution == "Archlinux"
+---
+- name: repositories
+  tags: repositories
+  block:
+    - name: system setup | repositories | add ignored packages for archlinux hosts
+      lineinfile:
+        dest: /etc/pacman.conf
+        regexp: "^#IgnorePkg"
+        line: "IgnorePkg = ansible linux linux linux-headers linux-lts linux-lts-headers"
+      when: ansible_distribution == "Archlinux"
 
-- name: system setup | repositories | add sources.list for debian hosts
-  tags: non-free,repositories
-  copy:
-    src: distribution_packages/debian_sources.list
-    dest: /etc/apt/sources.list
-    backup: yes
-  notify: apt_update
-  when: ansible_distribution == "Debian"
+    - name: system setup | repositories | add sources.list for debian hosts
+      tags: non-free
+      copy:
+        src: distribution_packages/debian_sources.list
+        dest: /etc/apt/sources.list
+        backup: yes
+      notify: apt_update
+      when: ansible_distribution == "Debian"
 
-#- name: system setup | repositories | add debian-backports
-#  tags: backports,repositories
-#  apt_repository:
-#    repo: deb http://deb.debian.org/debian buster-backports main
-#    filename: debian-backborts
-#  notify: apt_update
-#  when: ansible_distribution == "Debian"
+    #- name: system setup | repositories | add debian-backports
+    #  tags: backports
+    #  apt_repository:
+    #    repo: deb http://deb.debian.org/debian buster-backports main
+    #    filename: debian-backborts
+    #  notify: apt_update
+    #  when: ansible_distribution == "Debian"
 
-- name: system setup | repositories | install package management tools (debian-based)
-  tags: packages,system,settings
-  package:
-    name:
-      - aptitude
-      - software-properties-common
-    state: present
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    - name: system setup | repositories | install package management tools (debian-based)
+      tags:
+        - system
+        - settings
+      package:
+        name:
+          - aptitude
+          - software-properties-common
+        state: present
+      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
