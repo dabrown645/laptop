@@ -65,5 +65,5 @@ gtk3: true
 mate: false
 
 # gnome desktop packages
-flatpack: true
+flatpak: true
 snap: false
