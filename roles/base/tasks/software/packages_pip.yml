@@ -9,5 +9,5 @@
     executable: /usr/bin/pip3
     state: present
     name: "{{ item }}"
-    loop:
-      - bpytop
+  loop:
+    - bpytop
