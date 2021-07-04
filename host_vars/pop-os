@@ -19,7 +19,7 @@ bitwarden: false
 brave: true
 caffeine: false
 chromium: false
-codex: true
+codecs: true
 darktable: true
 enpass: true
 firefox: true
@@ -65,5 +65,5 @@ gtk3: true
 mate: false
 
 # gnome desktop packages
-flatpak: true
+flatpack: true
 snap: false
