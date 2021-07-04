@@ -1,8 +1,13 @@
-- name: system setup | pip packages | install bpytop
-  tags: packages,pip,python,bpytop
+---
+- name: system setup | pip packages | install
+  tags:
+    - pip
+    - python
   become: true
   become_user: "{{ main_user }}"
   pip:
     executable: /usr/bin/pip3
     state: present
-    name: bpytop
+    name: "{{ item }}"
+    loop:
+      - bpytop

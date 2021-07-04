@@ -1,6 +1,6 @@
 ---
 - name: system setup | development packages | install packages
-  tags: 
+  tags:
     - dev
     - python
   package:
