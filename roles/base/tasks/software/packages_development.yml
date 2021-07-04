@@ -1,5 +1,8 @@
+---
 - name: system setup | development packages | install packages
-  tags: dev,development,packages,python,ruby
+  tags: 
+    - dev
+    - python
   package:
     name:
       - fabric
