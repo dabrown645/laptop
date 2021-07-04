@@ -1,58 +1,60 @@
 ---
-- name: gnome | packages | install gnome packages
+- name: gnome packages
   tags: gnome_packages
-  package:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - eog
-    - file-roller
-    - "{{ gdm_package }}"
-    - gedit
-    - gnome-backgrounds
-    - gnome-boxes
-    - gnome-control-center
-    - gnome-disk-utility
-    - gnome-icon-theme
-    - gnome-power-manager
-    - gnome-remote-desktop
-    - gnome-shell
-    - gnome-shell-extensions
-    - gnome-system-monitor
-    - gnome-terminal
-    - gnome-tweaks
-    - nautilus
+  block:
+    - name: gnome | packages | install gnome packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - eog
+        - file-roller
+        - "{{ gdm_package }}"
+        - gedit
+        - gnome-backgrounds
+        - gnome-boxes
+        - gnome-control-center
+        - gnome-disk-utility
+        - gnome-icon-theme
+        - gnome-power-manager
+        - gnome-remote-desktop
+        - gnome-shell
+        - gnome-shell-extensions
+        - gnome-system-monitor
+        - gnome-terminal
+        - gnome-tweaks
+        - nautilus
 
-- name: gnome | packages | install flatpak support in gnome software
-  tags: gnome_packages,flatpak
-  package:
-    name:
-      - gnome-software-plugin-flatpak
-  when:
-    - flatpak|bool
-    - ansible_distribution in ["Debian", "Ubuntu"]
+    - name: gnome | packages | install flatpak support in gnome software
+      tags: flatpak
+      package:
+        name:
+          - gnome-software-plugin-flatpak
+      when:
+        - flatpak|bool
+        - ansible_distribution in ["Debian", "Ubuntu"]
 
-- name: gnome | packages | install snap support in gnome software
-  tags: gnome_packages,snap
-  package:
-    name:
-      - gnome-software-plugin-snap
-  when:
-    - snap|bool
-    - ansible_distribution in ["Debian", "Ubuntu"]
+    - name: gnome | packages | install snap support in gnome software
+      tags: snap
+      package:
+        name:
+          - gnome-software-plugin-snap
+      when:
+        - snap|bool
+        - ansible_distribution in ["Debian", "Ubuntu"]
 
-- name: gnome | packages | install support for network-manager openvpn
-  # It appears at though Debian, Pop!_OS, & Ubuntu place GNOME support for openvpn
-  # in a separate package. This doesn't seem to be the case with archlinux
-  tags: gnome_packages,openvpn
-  package:
-    name:
-      - network-manager-openvpn-gnome
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    - name: gnome | packages | install support for network-manager openvpn
+      # It appears at though Debian, Pop!_OS, & Ubuntu place GNOME support for openvpn
+      # in a separate package. This doesn't seem to be the case with archlinux
+      tags: openvpn
+      package:
+        name:
+          - network-manager-openvpn-gnome
+      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
-- name: gnome | packages | enable & start gdm
-  tags: gnome_packages,enable-gdm
-  service:
-    name: gdm
-    enabled: true
-    state: started
+    - name: gnome | packages | enable & start gdm
+      tags: enable-gdm
+      service:
+        name: gdm
+        enabled: true
+        state: started
