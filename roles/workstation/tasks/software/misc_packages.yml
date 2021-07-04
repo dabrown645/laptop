@@ -28,7 +28,7 @@
         - unrar
         - "{{ wireless_tools_package }}"
         - "{{ wpa_supplicant_package }}"
-      when: misc_package|bool
+      when: misc_packages|bool
 
     - name: software | workstation distribution packages remove
       package:
@@ -56,4 +56,4 @@
         - unrar
         - "{{ wireless_tools_package }}"
         - "{{ wpa_supplicant_package }}"
-      when: not misc_package|bool
+      when: not misc_packages|bool
