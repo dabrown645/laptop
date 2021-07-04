@@ -1,30 +1,31 @@
-- name: system setup | cron install cron package
-  tags: packages,cron
-  package:
-    name:
-      - "{{ cron_package }}"
-    state: present
-
-- name: system setup | cron | start and enable cronie daemon
+---
+- name: cron
   tags: cron
-  service:
-    name: cron
-    state: started
-    enabled: true
+  block:
+    - name: system setup | cron | install cron package
+      tags: packages
+      package:
+        name:
+          - "{{ cron_package }}"
+        state: present
 
-- name: system setup | cron | schedule automatic ansible provissioning
-  tags: cron
-  cron:
-    name: "ansible provision"
-    user: ansible
-    hour: "{{ ansible_cron_hour | default('*') }}"
-    minute: "{{ ansible_cron_minute | default('*/30') }}"
-    job: "/usr/local/bin/provision > /dev/null"
+    - name: system setup | cron | start and enable cronie daemon
+      service:
+        name: cron
+        state: started
+        enabled: true
 
-- name: system setup | cron | schedule ansible cleanup at boot
-  tags: cron
-  cron:
-    name: "ansible refresh at boot"
-    user: ansible
-    special_time: reboot
-    job: "/bin/rm -rf /home/ansible/.ansible"
+    - name: system setup | cron | schedule automatic ansible provisioning
+      cron:
+        name: "ansible provision"
+        user: ansible
+        hour: "{{ ansible_cron_hour | default('*') }}"
+        minute: "{{ ansible_cron_minute | default('*/30') }}"
+        job: "/usr/local/bin/provision > /dev/null"
+
+    - name: system setup | cron | schedule ansible cleanup at boot
+      cron:
+        name: "ansible refresh at boot"
+        user: ansible
+        special_time: reboot
+        job: "/bin/rm -rf /home/ansible/.ansible"
