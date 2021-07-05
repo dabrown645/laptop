@@ -24,18 +24,21 @@
 
             - name: software | virtualbox | install
               package:
-                name:
-                - virtualbox
+                name: "{{ item }}"
                 state: present
+              loop:
+                - "{{ virtualbox_package }}"
+
           when: virtualbox|bool
 
         - name: software | virtualbox | remove
           block:
             - name: software | virtualbox | remove
               package:
-                name:
-                - virtualbox
+                name: "{{ item }}"
                 state: absent
+              loop:
+                - "{{ virtualbox_package }}"
 
             - name: software | virtualbox | remove key
               apt_key:
