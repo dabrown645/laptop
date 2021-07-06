@@ -21,6 +21,7 @@ caffeine: false
 chromium: false
 codecs: true
 darktable: true
+docker: true
 enpass: true
 firefox: true
 foliate: false

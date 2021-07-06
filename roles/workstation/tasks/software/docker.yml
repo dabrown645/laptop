@@ -1,0 +1,19 @@
+---
+- name: docker
+  tags: docker
+  block:
+    - name: software | docker | install
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - "{{ docker_package }}"
+      when: docker|bool
+
+    - name: software | docker | remove
+      package:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ docker_package }}"
+      when: not docker|bool

@@ -66,6 +66,7 @@
     - import_tasks: software/chromium.yml
     - import_tasks: software/codecs.yml
     - import_tasks: software/darktable.yml
+    - import_tasks: software/docker.yml
     - import_tasks: software/enpass.yml
     - import_tasks: software/firefox.yml
     - import_tasks: software/google_chrome.yml

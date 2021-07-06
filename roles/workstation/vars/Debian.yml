@@ -5,6 +5,12 @@ bzip2_package:
   - bzip2-doc
 cryptsetup_package: cryptsetup-bin
 cups_package: cups-daemon
+docker_package:
+  - docker
+  - docker-clean
+  - docker-compose
+  - docker-doc
+  - docker.io
 font_fira_mono_package: fonts-firacode
 font_hack_ttf_package: fonts-hack-ttf
 font_inconsolata_package: fonts-inconsolata
