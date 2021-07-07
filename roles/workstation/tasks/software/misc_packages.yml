@@ -1,65 +1,47 @@
 ---
 - name: misc packages
   tags: misc_packages
+  vars:
+    essential:
+      - acpid
+      - alsa-utils
+      - "{{ cups_package }}"
+      - "{{ cryptsetup_package }}"
+      - "{{ network_manager_openvpn_package }}"
+      - "{{ network_manager_package }}"
+      - "{{ network_manager_pptp_package }}"
+      - "{{ wireless_tools_package }}"
+      - "{{ wpa_supplicant_package }}"
+    pkgs:
+      - "{{ bzip2_package }}"
+      - dconf-editor
+      - dialog
+      - "{{ font_fira_mono_package }}"
+      - "{{ font_hack_ttf_package }}"
+      - "{{ font_inconsolata_package }}"
+      - "{{ font_noto_emoji_package }}"
+      - "{{ font_terminus_package }}"
+      - gparted
+      - "{{ hunspell_package }}"
+      - "{{ hyphen_package }}"
+      - neovim
+      - "{{ p7zip_package }}"
+      - pavucontrol
+      - unrar
   block:
     - name: software | workstation distribution packages install
       package:
         name: "{{ item }}"
         state: present
-      loop:
-        - acpid
-        - alsa-utils
-        - "{{ bzip2_package }}"
-        - "{{ cups_package }}"
-        - "{{ cryptsetup_package }}"
-        - dconf-editor
-        - dialog
-        - "{{ font_fira_mono_package }}"
-        - "{{ font_hack_ttf_package }}"
-        - "{{ font_inconsolata_package }}"
-        - "{{ font_noto_emoji_package }}"
-        - "{{ font_terminus_package }}"
-        - gparted
-        - "{{ hunspell_package }}"
-        - "{{ hyphen_package }}"
-        - "{{ network_manager_openvpn_package }}"
-        - "{{ network_manager_package }}"
-        - "{{ network_manager_pptp_package }}"
-        - neovim
-        - "{{ p7zip_package }}"
-        - pavucontrol
-        - unrar
-        - "{{ wireless_tools_package }}"
-        - "{{ wpa_supplicant_package }}"
+      with_items:
+        - "{{ essential }}"
+        - "{{ pkgs }}"
       when: misc_packages|bool
 
     - name: software | workstation distribution packages remove
+      # Note: can't remove essentail packages 
       package:
         name: "{{ item }}"
         state: absent
-      loop:
-        - acpid
-        - alsa-utils
-        - "{{ bzip2_package }}"
-        - "{{ cups_package }}"
-        - "{{ cryptsetup_package }}"
-        - dconf-editor
-        - dialog
-        - "{{ font_fira_mono_package }}"
-        - "{{ font_hack_ttf_package }}"
-        - "{{ font_inconsolata_package }}"
-        - "{{ font_noto_emoji_package }}"
-        - "{{ font_terminus_package }}"
-        - gparted
-        - "{{ hunspell_package }}"
-        - "{{ hyphen_package }}"
-        - "{{ network_manager_openvpn_package }}"
-        - "{{ network_manager_package }}"
-        - "{{ network_manager_pptp_package }}"
-        - neovim
-        - "{{ p7zip_package }}"
-        - pavucontrol
-        - unrar
-        - "{{ wireless_tools_package }}"
-        - "{{ wpa_supplicant_package }}"
+      with_items: "{{ pkgs }}"
       when: not misc_packages|bool

@@ -11,6 +11,7 @@ microcode_amd_install: false
 microcode_intel_install: true
 
 # Application selection
+
 audacious: false
 audacity: false
 authy: true
@@ -43,13 +44,12 @@ solaar: false
 spotify: true
 steam: true
 syncthing: true
-thunderbird: true
-virtualbox: true
-
 terraform: true
+thunderbird: true
 todoist: true
 ulauncher: false
 vagrant: true
+virtualbox: true
 vivaldi: true
 vlc: true
 xonotic: true
