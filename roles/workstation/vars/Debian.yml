@@ -11,9 +11,18 @@ docker_package:
   - docker-compose
   - docker-doc
   - docker.io
+font_manager_package: font-manager
+font_croscore_package: fonts-croscore
+font_dejavu_package:
+  - fonts-dejavu
+  - fonts-dejavu-extra
 font_fira_mono_package: fonts-firacode
 font_hack_ttf_package: fonts-hack-ttf
+font_ibm_plex_package: fonts-ibm-plex
 font_inconsolata_package: fonts-inconsolata
+font_liberation_package:
+  - fonts-liberation
+  - fonts-liberation2
 font_noto_emoji_package: fonts-noto-color-emoji
 font_terminus_package: xfonts-terminus
 gdm_package: gdm3

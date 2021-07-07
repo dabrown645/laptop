@@ -15,7 +15,10 @@
         - dconf-editor
         - dialog
         - "{{ font_fira_mono_package }}"
+        - "{{ font_hack_ttf_package }}"
+        - "{{ font_inconsolata_package }}"
         - "{{ font_noto_emoji_package }}"
+        - "{{ font_terminus_package }}"
         - gparted
         - "{{ hunspell_package }}"
         - "{{ hyphen_package }}"
@@ -43,7 +46,10 @@
         - dconf-editor
         - dialog
         - "{{ font_fira_mono_package }}"
+        - "{{ font_hack_ttf_package }}"
+        - "{{ font_inconsolata_package }}"
         - "{{ font_noto_emoji_package }}"
+        - "{{ font_terminus_package }}"
         - gparted
         - "{{ hunspell_package }}"
         - "{{ hyphen_package }}"
