@@ -34,6 +34,16 @@
         - flatpak|bool
         - ansible_distribution in ["Debian", "Ubuntu"]
 
+    - name: gnome | packages | add flatpak repo
+      tags: flatpak
+      flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+      when:
+        - flatpak|bool
+        - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
     - name: gnome | packages | install snap support in gnome software
       tags: snap
       package:

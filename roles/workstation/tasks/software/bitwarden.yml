@@ -1,14 +1,15 @@
 ---
-- name: software | bitwarden | install
-  tags: bitwarden, install
-  flatpak:
-    name: com.bitwarden.desktop
-    state: present
-  when: bitwarden
+- name: bitwarden
+  tags: bitwarden
+  block:
+    - name: software | bitwarden | install
+      flatpak:
+        name: com.bitwarden.desktop
+        state: present
+      when: bitwarden
 
-- name: software | bitwarden | remove
-  tags: bitwarden,remove
-  flatpak:
-    name: com.bitwarden.desktop
-    state: present
-  when: not bitwarden
+    - name: software | bitwarden | remove
+      flatpak:
+        name: com.bitwarden.desktop
+        state: present
+      when: not bitwarden
