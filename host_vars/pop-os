@@ -27,7 +27,7 @@ docker: true
 enpass: true
 firefox: true
 #foliate: false     # flatpak ebook viewer
-games: false
+games: true
 glimpse: true       # need to add
 google_chrome: true
 joplin: true
