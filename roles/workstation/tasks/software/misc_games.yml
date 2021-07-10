@@ -15,6 +15,7 @@
   block:
     - name: software | games | install
       package:
+        name: "{{ pkg_names }}"
         state: present|bool
       when: games|bool
 
