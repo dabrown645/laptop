@@ -16,7 +16,7 @@ audacious: false
 audacity: false
 authy: true
 autofs: false
-bitwarden: true
+bitwarden: false
 brave: true
 calibre: true
 caffeine: false
