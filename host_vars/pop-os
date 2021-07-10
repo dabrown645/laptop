@@ -55,6 +55,7 @@ virtualbox: true
 vivaldi: true
 vlc: true
 xonotic: true
+zoom: true
 
 # themes
 theme_pop_os: true

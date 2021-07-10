@@ -1,0 +1,17 @@
+---
+- name: zoom
+  tags: zoom
+  vars: 
+    pkg_name: us.zoom.zoom
+  block:
+    - name: software | zoom | install
+      flatpak:
+        name: "{{ pkg_name }}"
+        state: present
+      when: zoom|bool
+
+    - name: software | zoom | remove
+      flatpak:
+        name: "{{ pkg_name }}"
+        state: absent
+      when: not zoom|bool
