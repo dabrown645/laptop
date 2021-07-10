@@ -1,0 +1,17 @@
+---
+- name: joplin
+  tags: joplin
+  vars: 
+    pkg_name: net.cozic.joplin_desktop
+  block:
+    - name: software | joplin | install
+      flatpak:
+        name: "{{ pkg_name }}"
+        state: present
+      when: joplin|bool
+
+    - name: software | joplin | remove
+      flatpak:
+        name: "{{ pkg_name }}"
+        state: absent
+      when: not joplin|bool

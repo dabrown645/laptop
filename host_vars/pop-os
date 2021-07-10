@@ -30,6 +30,7 @@ foliate: false
 games: false
 glimpse: true
 google_chrome: true
+joplin: true
 kdenlive: false
 keepassxc: false
 libreoffice: false
