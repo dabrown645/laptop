@@ -6,52 +6,55 @@ ssh_port: 22
 ssh_users: "dabrown"
 
 # platform-specific
-ansible_python_interpreter: /usr/bin/python3
+ansible_python_interpreter: /usr/bin/python3   # used ?
 microcode_amd_install: false
 microcode_intel_install: true
 
 # Application selection
+
 audacious: false
 audacity: false
 authy: true
 autofs: false
 bitwarden: false
 brave: true
+calibre: true
 caffeine: false
 chromium: false
 codecs: true
 darktable: true
+docker: true
 enpass: true
 firefox: true
-foliate: false
+#foliate: false     # flatpak ebook viewer
 games: false
-glimpse: true
+glimpse: true       # need to add
 google_chrome: true
+joplin: true
 kdenlive: false
 keepassxc: false
-libreoffice: false
+libreoffice: true
 lutris: false
-mattermost: true
-minecraft: true
+#mattermost: true     # chat app
 misc_packages: true
 openshot: false
-packer: true
+#packer: true      # need to add
 protonvpn: true
-signal: true
+#signal: true      # chat app
 solaar: false
-spotify: true
-steam: true
-syncthing: true
+#spotify: true     # need to add
+#steam: truea       # need to add
+#syncthing: true    # need to add
+#terraform: true    # need to add
 thunderbird: true
+#todoist: true      # flatpak todo list
+#ulauncher: false   # need to add
+#vagrant: true       # need to add
 virtualbox: true
-
-terraform: true
-todoist: true
-ulauncher: false
-vagrant: true
-vivaldi: true
-vlc: true
-xonotic: true
+#vivaldi: true      # need to add
+#vlc: true          # need to add
+#xonotic: true      # need to add
+zoom: true
 
 # themes
 theme_pop_os: true
