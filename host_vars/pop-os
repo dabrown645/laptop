@@ -18,6 +18,7 @@ authy: true
 autofs: false
 bitwarden: true
 brave: true
+calibre: true
 caffeine: false
 chromium: false
 codecs: true

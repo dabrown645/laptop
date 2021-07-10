@@ -62,6 +62,7 @@
     #- import_tasks: software/authy.yml       - no package
     - import_tasks: software/brave.yml
     - import_tasks: software/bitwarden.yml
+    - import_tasks: software/calibre.yml
     - import_tasks: software/caffeine.yml
     - import_tasks: software/chromium.yml
     - import_tasks: software/codecs.yml
