@@ -16,7 +16,7 @@
     - name: software | games | install
       package:
         name: "{{ pkg_names }}"
-        state: present|bool
+        state: present
       when: games|bool
 
     - name: software | games | remove
