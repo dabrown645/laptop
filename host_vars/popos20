@@ -1,4 +1,4 @@
-branch: master
+branch: main
 
 # ansible configuration
 ansible_cron_minute: "*/15"
