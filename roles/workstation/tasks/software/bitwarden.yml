@@ -6,10 +6,10 @@
       flatpak:
         name: com.bitwarden.desktop
         state: present
-      when: bitwarden
+      when: bitwarden|bool
 
     - name: software | bitwarden | remove
       flatpak:
         name: com.bitwarden.desktop
-        state: present
-      when: not bitwarden
+        state: absent
+      when: not bitwarden|bool
