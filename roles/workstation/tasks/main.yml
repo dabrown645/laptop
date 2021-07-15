@@ -1,87 +1,90 @@
 ---
-- name: workstation include distribution vars
-  tags: always
-  include_vars: "{{ ansible_distribution }}.yml"
-
-- name: configure gnome desktop environment
+- name: workstation processing
+  tags: workstation
   block:
-    - name: install packages
-      import_tasks: desktop_environments/gnome/packages.yml
+    - name: workstation include distribution vars
+      tags: always
+      include_vars: "{{ ansible_distribution }}.yml"
 
-    - name: install wallpapers
-      import_tasks: desktop_environments/gnome/wallpaper.yml
-
-    - name: install gnome themes
+    - name: configure gnome desktop environment
       block:
-        - import_tasks: desktop_environments/gnome/theme_ant.yml
-        - import_tasks: desktop_environments/gnome/theme_pop.yml
-        - import_tasks: desktop_environments/gnome/theme_gnome_prof.yml
+        - name: install packages
+          import_tasks: desktop_environments/gnome/packages.yml
 
-    - name: configure gnome desktop
+        - name: install wallpapers
+          import_tasks: desktop_environments/gnome/wallpaper.yml
+
+        - name: install gnome themes
+          block:
+            - import_tasks: desktop_environments/gnome/theme_ant.yml
+            - import_tasks: desktop_environments/gnome/theme_pop.yml
+            - import_tasks: desktop_environments/gnome/theme_gnome_prof.yml
+
+        - name: configure gnome desktop
+          block:
+            - import_tasks: desktop_environments/gnome/appearance.yml
+            - import_tasks: desktop_environments/gnome/shell_settings.yml
+            - import_tasks: desktop_environments/gnome/nautilus.yml
+            - import_tasks: desktop_environments/gnome/peripherals.yml
+            - import_tasks: desktop_environments/gnome/terminal.yml
+          become_user: dabrown
+      become: true
+      when: gnome
+
+    #- name: configure mate desktop environment
+      #block:
+        #- name: install packages
+        #  import_tasks: desktop_environments/mate/packages.yml
+
+        #- name: configure gnome desktop
+        #  block:
+        #    - import_tasks: desktop_environments/mate/appearance.yml
+        #    - import_tasks: desktop_environments/mate/shell_settings.yml
+        #    - import_tasks: desktop_environments/mate/nautilus.yml
+        #    - import_tasks: desktop_environments/mate/peripherals.yml
+        #    - import_tasks: desktop_environments/mate/terminal.yml
+        #  become_user: dabrown
+      #become: true
+      #when: mate
+
+    - name: system setup
       block:
-        - import_tasks: desktop_environments/gnome/appearance.yml
-        - import_tasks: desktop_environments/gnome/shell_settings.yml
-        - import_tasks: desktop_environments/gnome/nautilus.yml
-        - import_tasks: desktop_environments/gnome/peripherals.yml
-        - import_tasks: desktop_environments/gnome/terminal.yml
-      become_user: dabrown
-  become: true
-  when: gnome
+        - import_tasks: system_setup/autofs.yml
+        #- import_tasks: system_setup/scripts.yml - not being implemented
+        #- import_tasks: system_setup/tweaks.yml  - not being implemented
+      become: true
 
-#- name: configure mate desktop environment
-  #block:
-    #- name: install packages
-    #  import_tasks: desktop_environments/mate/packages.yml
-
-    #- name: configure gnome desktop
-    #  block:
-    #    - import_tasks: desktop_environments/mate/appearance.yml
-    #    - import_tasks: desktop_environments/mate/shell_settings.yml
-    #    - import_tasks: desktop_environments/mate/nautilus.yml
-    #    - import_tasks: desktop_environments/mate/peripherals.yml
-    #    - import_tasks: desktop_environments/mate/terminal.yml
-    #  become_user: dabrown
-  #become: true
-  #when: mate
-
-- name: system setup
-  block:
-    - import_tasks: system_setup/autofs.yml
-    #- import_tasks: system_setup/scripts.yml - not being implemented
-    #- import_tasks: system_setup/tweaks.yml  - not being implemented
-  become: true
-
-- name: software installation
-  tags:
-    - software
-    - packages
-    - install
-  block:
-    - import_tasks: software/audacious.yml
-    - import_tasks: software/audacity.yml
-    #- import_tasks: software/authy.yml       - no package
-    - import_tasks: software/brave.yml
-    - import_tasks: software/bitwarden.yml
-    - import_tasks: software/calibre.yml
-    - import_tasks: software/caffeine.yml
-    - import_tasks: software/chromium.yml
-    - import_tasks: software/codecs.yml
-    - import_tasks: software/darktable.yml
-    - import_tasks: software/docker.yml
-    - import_tasks: software/enpass.yml
-    - import_tasks: software/firefox.yml
-    - import_tasks: software/google_chrome.yml
-    - import_tasks: software/joplin.yml
-    - import_tasks: software/kdenlive.yml
-    - import_tasks: software/keepassxc.yml
-    - import_tasks: software/libreoffice.yml
-    - import_tasks: software/lutris.yml
-    - import_tasks: software/misc_games.yml
-    - import_tasks: software/misc_packages.yml
-    - import_tasks: software/openshot.yml
-    - import_tasks: software/protonvpn.yml
-    - import_tasks: software/solaar.yml
-    - import_tasks: software/thunderbird.yml
-    - import_tasks: software/virtualbox.yml
-    - import_tasks: software/zoom.yml
-  become: true
+    - name: software installation
+      tags:
+        - software
+        - packages
+        - install
+      block:
+        - import_tasks: software/audacious.yml
+        - import_tasks: software/audacity.yml
+        #- import_tasks: software/authy.yml       - no package
+        - import_tasks: software/brave.yml
+        - import_tasks: software/bitwarden.yml
+        - import_tasks: software/calibre.yml
+        - import_tasks: software/caffeine.yml
+        - import_tasks: software/chromium.yml
+        - import_tasks: software/codecs.yml
+        - import_tasks: software/darktable.yml
+        - import_tasks: software/docker.yml
+        - import_tasks: software/enpass.yml
+        - import_tasks: software/firefox.yml
+        - import_tasks: software/google_chrome.yml
+        - import_tasks: software/joplin.yml
+        - import_tasks: software/kdenlive.yml
+        - import_tasks: software/keepassxc.yml
+        - import_tasks: software/libreoffice.yml
+        - import_tasks: software/lutris.yml
+        - import_tasks: software/misc_games.yml
+        - import_tasks: software/misc_packages.yml
+        - import_tasks: software/openshot.yml
+        - import_tasks: software/protonvpn.yml
+        - import_tasks: software/solaar.yml
+        - import_tasks: software/thunderbird.yml
+        - import_tasks: software/virtualbox.yml
+        - import_tasks: software/zoom.yml
+      become: true
