@@ -14,6 +14,7 @@
         state: present
       loop:
         - at
+        - apt-transport-https
         - colordiff
         - curl
         - "{{ dns_utils_package }}"

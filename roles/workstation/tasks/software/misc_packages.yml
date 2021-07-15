@@ -13,21 +13,35 @@
       - "{{ wireless_tools_package }}"
       - "{{ wpa_supplicant_package }}"
     pkgs:
+      - bat
+      - bibletime
+      - bibletime-data
       - "{{ bzip2_package }}"
+      - cabextract
       - dconf-editor
       - dialog
+      - formiko
       - "{{ font_fira_mono_package }}"
       - "{{ font_hack_ttf_package }}"
       - "{{ font_inconsolata_package }}"
       - "{{ font_noto_emoji_package }}"
       - "{{ font_terminus_package }}"
       - gparted
+      - gnupg-agent
       - "{{ hunspell_package }}"
       - "{{ hyphen_package }}"
+      - kitty
+      - jq
       - neovim
       - "{{ p7zip_package }}"
+      - pandoc
+      - pandoc-data
       - pavucontrol
+      - pax
+      - pdftk
+      - podman
       - unrar
+      - zstd
   block:
     - name: software | workstation distribution packages install
       package:
