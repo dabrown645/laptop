@@ -16,7 +16,7 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - pkg_names
+        - "{{ pkg_names }}"
 
     - name: system setup | openssh | generate sshd_config file from template
       template:
