@@ -20,7 +20,7 @@
       - cabextract
       - dconf-editor
       - dialog
-      #- formiko
+      - formiko
       - "{{ font_fira_mono_package }}"
       - "{{ font_hack_ttf_package }}"
       - "{{ font_inconsolata_package }}"
@@ -31,6 +31,7 @@
       - "{{ hunspell_package }}"
       - "{{ hyphen_package }}"
       - kitty
+      - kookbook
       - jq
       - neovim
       - "{{ p7zip_package }}"
@@ -40,6 +41,7 @@
       - pax
       - pdftk
       - podman
+      - tree
       - unrar
       - zstd
   block:
