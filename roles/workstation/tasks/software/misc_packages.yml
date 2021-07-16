@@ -20,7 +20,7 @@
       - cabextract
       - dconf-editor
       - dialog
-      - formiko
+      #- formiko
       - "{{ font_fira_mono_package }}"
       - "{{ font_hack_ttf_package }}"
       - "{{ font_inconsolata_package }}"
