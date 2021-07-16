@@ -1,0 +1,19 @@
+---
+- name: inkscape
+  tags: inkscape
+  block:
+    - name: software | inkscape | install
+      tags: packages,inkscape,install
+      package:
+        name:
+          - inkscape
+        state: present
+      when: inkscape|bool
+
+    - name: software | inkscape | remove
+      tags: packages,inkscape,remove
+      package:
+        name:
+          - inkscape
+        state: absent
+      when: not inkscape|bool
