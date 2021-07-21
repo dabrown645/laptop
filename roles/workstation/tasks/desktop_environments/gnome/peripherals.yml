@@ -3,7 +3,7 @@
   tags: gnome,peripherals
   dconf:
     key: "/org/gnome/desktop/peripherals/mouse/natural-scroll"
-    value: "true"
+    value: "false"
     state: present
 
 - name: gnome | peripherals | mouse | accel-profile
@@ -24,7 +24,7 @@
   tags: gnome,peripherals
   dconf:
     key: "/org/gnome/desktop/peripherals/touchpad/natural-scroll"
-    value: "true"
+    value: "false"
     state: present
 
 - name: gnome | peripherals | touchpad | speed
