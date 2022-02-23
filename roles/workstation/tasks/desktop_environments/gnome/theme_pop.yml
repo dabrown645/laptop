@@ -34,6 +34,6 @@
             state: absent
       when:
         - theme_pop_os
-        - ansible_distribution in ["Debian", "Ubuntu"]
+        - ansible_distribution in debian_oses
   when:
-    - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    - ansible_distribution in debian_oses

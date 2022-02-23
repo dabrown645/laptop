@@ -55,4 +55,4 @@
               changed_when: false
           when: not protonvpn|bool
       when:
-        - ansible_distribution in [ "Debian", "Pop!_OS", "Ubuntu"]
+        - ansible_distribution in debian_oses

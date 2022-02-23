@@ -35,4 +35,4 @@
           - aptitude
           - software-properties-common
         state: present
-      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+      when: ansible_distribution in debian_oses

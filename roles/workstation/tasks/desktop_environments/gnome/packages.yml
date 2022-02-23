@@ -42,7 +42,7 @@
         flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
       when:
         - flatpak|bool
-        - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+        - ansible_distribution in debian_oses
 
     - name: gnome | packages | install snap support in gnome software
       tags: snap
@@ -60,7 +60,7 @@
       package:
         name:
           - network-manager-openvpn-gnome
-      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+      when: ansible_distribution in debian_oses
 
     - name: gnome | packages | enable & start gdm
       tags: enable-gdm

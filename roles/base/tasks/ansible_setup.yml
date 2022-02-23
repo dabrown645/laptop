@@ -15,7 +15,7 @@
   tags: packages
   package:
     name: acl
-  when: ansible_os_family in ["Debian", "Pop!_OS"]
+  when: ansible_os_family in debian_oses
 
 - name: ansible setup | create ansible log file
   file:

@@ -26,7 +26,7 @@
             state: present
       when:
         - google_chrome|bool
-        - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+        - ansible_distribution in debian_oses
       become: yes
 
     - name: software | google-chrome | remove
@@ -54,5 +54,5 @@
             state: absent
       when:
         - not google_chrome|bool
-        - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+        - ansible_distribution in debian_oses
       become: yes

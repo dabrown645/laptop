@@ -35,4 +35,4 @@
           when:
             - not lutris|bool
       when:
-        ansible_distribution in ["Pop!_OS", "Ubuntu"]
+        ansible_distribution in debian_oses
