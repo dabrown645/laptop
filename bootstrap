@@ -1,13 +1,24 @@
 #!/usr/bin/env bash
+# using ideas from https://github.com/punchagan/ansible-system-setup/blob/main/bootstrap to set up mine
 
-if $(type -P apt >/dev/null) ; then
-    sudo apt install ansible git -y
+set -euo pipefail
+
+URL="https://github.com/dabrown645/laptop.gt"
+
+# Install Ansible (ansible-pull and Git
+if $(type -P apt > /dev/null) ; then
+    (which ansible-pull && which git) || (sudo apt update && sudo apt install -y ansible git)
+elif $(type -P pacman > /dev/null) ; then
+    (which ansible-pull && which git) || (sudo -Syu ansible git)
 elif $(type -P zypper >/dev/null); then
-    sudo zypper install ansible git -y
+    (which ansible-pull && which git) || (sudo zypper install -y ansible git)
 else
-    echo OS type not supported
+    echo "OS type not supported"
 fi
 
-branch=${1:-main}
+if  [[ ${#} -ge 1 ]] ; then
+    branch=${1:-main}
+    shift
+fi
 
-ansible-pull -U https://github.com/dabrown645/laptop.git --checkout ${branch}
+ansible-pull --url ${URL} --checkout ${branch} ${@}
