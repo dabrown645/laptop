@@ -16,6 +16,10 @@ else
     echo "OS type not supported"
 fi
 
+# Create ansible log directory
+# NOTE: Ensure it i the same as in the log path in Ansible.cfg
+mkdir -p ~/.local/var/log
+
 if  [[ ${#} -ge 1 ]] ; then
     branch=${1:-main}
     shift
