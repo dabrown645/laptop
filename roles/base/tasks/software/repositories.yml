@@ -9,14 +9,14 @@
         line: "IgnorePkg = ansible linux linux linux-headers linux-lts linux-lts-headers"
       when: ansible_distribution == "Archlinux"
 
-    - name: system setup | repositories | add sources.list for debian hosts
-      tags: non-free
-      copy:
-        src: distribution_packages/debian_sources.list
-        dest: /etc/apt/sources.list
-        backup: yes
-      notify: apt_update
-      when: ansible_distribution in debian_oses
+    #- name: system setup | repositories | add sources.list for debian hosts
+    #  tags: non-free
+    #  copy:
+    #    src: distribution_packages/debian_sources.list
+    #    dest: /etc/apt/sources.list
+    #    backup: yes
+    #  notify: apt_update
+    #  when: ansible_distribution in debian_oses
 
     #- name: system setup | repositories | add debian-backports
     #  tags: backports
@@ -35,3 +35,4 @@
           - aptitude
           - software-properties-common
         state: present
+      when: ansible_distribution in debian_oses
