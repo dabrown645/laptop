@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-URL="https://github.com/dabrown645/laptop.gt"
+URL="https://github.com/dabrown645/laptop.git"
 
 # Install Ansible (ansible-pull and Git
 if $(type -P apt > /dev/null) ; then

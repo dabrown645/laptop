@@ -14,9 +14,9 @@
         name: systemd-timesyncd
         state: started
         enabled: true
-    when: ansible_distribution in debian_oses
+  when: ansible_distribution in debian_oses
 
-  - name: system setup | clock | set time zone
-    tags: timezone
-    timezone:
-      name: "America/Los_Angeles"
+- name: system setup | clock | set time zone
+  tags: timezone
+  timezone:
+    name: "America/Los_Angeles"
