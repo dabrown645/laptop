@@ -18,11 +18,11 @@ fi
 
 # Create ansible log directory
 # NOTE: Ensure it i the same as in the log path in Ansible.cfg
-mkdir -p ~/.local/var/log
+mkdir -p /var/log
 
 if  [[ ${#} -ge 1 ]] ; then
     branch=${1:-main}
     shift
 fi
 
-ansible-pull --url ${URL} --checkout ${branch} ${@}
+sudo ansible-pull --url ${URL} --checkout ${branch} ${@}
