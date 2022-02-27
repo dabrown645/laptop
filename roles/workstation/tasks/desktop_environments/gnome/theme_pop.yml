@@ -8,6 +8,12 @@
             repo: ppa:system76/pop
             state: present
 
+        - name: theme | pop_os | ensure apt list dir exists
+          file:
+            path: /var/lib/apt/lists/
+            state: directory
+            mode: 0755
+
         - name: theme | pop_os | update Cache
           apt: update_cache=yes
 
@@ -24,6 +30,12 @@
           apt_repository:
             repo: ppa:system76/pop
             state: absent
+
+        - name: theme | pop_os | ensure apt list dir exists
+          file:
+            path: /var/lib/apt/lists/
+            state: directory
+            mode: 0755
 
         - name: theme | pop_os | update Cache
           apt: update_cache=yes
