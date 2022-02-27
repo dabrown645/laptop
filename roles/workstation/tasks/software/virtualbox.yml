@@ -17,6 +17,12 @@
                 state: present
                 filename: virtualbox
 
+            - name: software | virtualbox | ensure apt list dir exists
+              file:
+                path: /var/lib/apt/lists/
+                state: directory
+                mode: 0755
+
             - name: software | virtualbox | update cache
               apt:
                 update_cache: true
@@ -51,6 +57,12 @@
                 repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian  {{ ansible_distribution_release }} contrib
                 state: absent
                 filename: virtualbox
+
+            - name: software | virtualbox | ensure apt list dir exists
+              file:
+                path: /var/lib/apt/lists/
+                state: directory
+                mode: 0755
 
             - name: software | virtualbox | update cache
               apt:

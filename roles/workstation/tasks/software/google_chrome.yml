@@ -15,6 +15,12 @@
             filename: google-chrome
           register: chrome_repo
 
+        - name: software | google-crome | ensure apt list dir exists
+          file:
+            path: /var/lib/apt/lists/
+            state: directory
+            mode: 0755
+
         - name: software | google-chrome | update sources (repo added or changed)
           apt:
             update_cache: yes
@@ -43,6 +49,12 @@
             filename: google-chrome
             state: absent
           register: chrome_repo
+
+        - name: software | google-crome | ensure apt list dir exists
+          file:
+            path: /var/lib/apt/lists/
+            state: directory
+            mode: 0755
 
         - name: software | google-chrome | update sources (repo added or changed)
           apt:

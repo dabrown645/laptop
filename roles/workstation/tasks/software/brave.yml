@@ -15,6 +15,12 @@
             state: present
             filename: brave
 
+        - name: software | brave | ensure apt list dir exists
+          file:
+            path: /var/lib/apt/lists/
+            state: directory
+            mode: 0755
+
         - name: software | brave | update cache
           apt:
             update_cache: true
@@ -50,6 +56,12 @@
             repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com stable main
             state: absent
             filename: brave
+
+        - name: software | brave | ensure apt list dir exists
+          file:
+            path: /var/lib/apt/lists/
+            state: directory
+            mode: 0755
 
         - name: software | brave | update cache
           apt:

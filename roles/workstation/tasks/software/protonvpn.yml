@@ -17,6 +17,12 @@
                 state: present
                 filename: protonvpn
 
+            - name: software | protonvpn | ensure apt list dir exists
+              file:
+                path: /var/lib/apt/lists/
+                state: directory
+                mode: 0755
+
             - name: software | protonvpn | update cache
               apt:
                 update_cache: true
@@ -48,6 +54,12 @@
                 repo: deb [arch=amd64] https://repo.protonvpn.com/debian unstable main
                 state: absent
                 filename: protonvpn
+
+            - name: software | protonvpn | ensure apt list dir exists
+              file:
+                path: /var/lib/apt/lists/
+                state: directory
+                mode: 0755
 
             - name: software | protonvpn | update cache
               apt:

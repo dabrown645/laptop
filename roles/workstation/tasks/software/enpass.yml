@@ -17,6 +17,12 @@
                 state: present
                 filename: enpass
 
+            - name: software | enpass | ensure apt list dir exists
+              file:
+                path: /var/lib/apt/lists/
+                state: directory
+                mode: 0755
+
             - name: software | enpass | update cache
               apt:
                 update_cache: true
@@ -49,6 +55,12 @@
                 repo: deb [arch=amd64] https://apt.enpass.io/ stable main
                 state: absent
                 filename: enpass
+
+            - name: software | enpass | ensure apt list dir exists
+              file:
+                path: /var/lib/apt/lists/
+                state: directory
+                mode: 0755
 
             - name: software | enpass | update cache
               apt:
