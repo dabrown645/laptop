@@ -12,7 +12,7 @@
         name: "{{ amd_microcode_package }}"
         state: present
       when:
-        - microcode_amd_install|bool
+        - microcode_amd_install
 
     - name: system setup | microcode | install package for intel
       tags: intel
@@ -20,4 +20,4 @@
         name: "{{ intel_microcode_package }}"
         state: present
       when:
-        - microcode_intel_install|bool
+        - microcode_intel_install

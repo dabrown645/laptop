@@ -1,3 +1,10 @@
 ---
-debian_oses: ["Debian", "Ubuntu", "Pop!_OS"]
+debian_oses:
+  - "Debian"
+  - "Ubuntu"
+  - "Pop!_OS"
+archlinux_oses:
+  - "ArchLinux"
 
+#global_users: 
+#-   

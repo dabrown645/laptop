@@ -2,6 +2,7 @@ gitp() {
     type=${1}
     shift
     comment=${@}
+    git add .
     git ${type} "${comment}"
     git push
 }

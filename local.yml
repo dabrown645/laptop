@@ -3,27 +3,47 @@
 - hosts: all
   tags: always
   become: true
+
   pre_tasks:
-    - name: "pre-run | update package cache (arch)"
-      tags: always
-      pacman: update_cache=yes
+    - name: Show ansible family and ansible_distribution
+      debug:
+        msg:
+          - "Family {{ ansible_os_family }} Distribution {{ ansible_distribution }}"
+          - "archlinux_oses = {{ archlinux_oses }}"
+          - "debian_oses = {{ debian_oses }}"
+        verbosity: 1
+
+    - name: "pre-run | update system before starting package cache (arch)"
+      pacman: 
+        update_cache: yes
+        upgrade: yes
       changed_when: false
-      when: ansible_distribution == "Archlinux"
+      when: ansible_distribution in archlinux_oses
+
     - name: "pre-run } update package cache (debian, etc)"
-      tags: always
-      apt: update_cache=yes
+      apt: 
+        update_cache: yes
+        upgrade: full
+        state: latest
       changed_when: false
       when: ansible_distribution in debian_oses
-
-# run roles
-- hosts: all
-  tags: base
-  become: true
+        
   roles:
     - base
-
-- hosts: workstation
-  tags: workstation
-  become: true
-  roles:
-    - workstation
+    
+#  -name: Debug information
+#    debug:
+#      msg: "ansible_distribution - {{ archlinux_oses }}"
+#
+## run roles
+#- hosts: all
+#  tags: base
+#  become: true
+#  roles:
+#    - base
+#
+#- hosts: workstation
+#  tags: workstation
+#  become: true
+#  roles:
+#    - workstation

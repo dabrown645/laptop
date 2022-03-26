@@ -7,16 +7,19 @@
     - system
   vars:
     pkg_names:
-      - "{{ openssh_package }}"
-      - openssh-client
-      - openssh-sftp-server
+      #- "{{ openssh_package | default(omit) }}"
+      #- "{{ openssh_client | default(omit) }}"
+      #- "{{ openssh_sftp_server | default(omit) }}"
+      - "{{ openssh_package | default(omit) }}"
+      - "{{ openssh_client | default(omit) }}"
+      - "{{ openssh_sftp_server | default(omit) }}"
   block:
     - name: system setup | openssh | install or update daemon package
       package:
         name: "{{ item }}"
         state: present
       with_items:
-        - "{{ pkg_names }}"
+        - "{{ openssh_packages }}"
 
     - name: system setup | openssh | generate sshd_config file from template
       template:
@@ -36,6 +39,8 @@
 
     - name: system setup | openssh | enable daemon
       service:
-        name: "{{ openssh_service }}"
+        name: "{{ item }}"
         enabled: true
         state: started
+      with_items:
+        - "{{ openssh_services }}"

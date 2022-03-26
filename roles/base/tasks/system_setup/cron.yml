@@ -11,7 +11,7 @@
 
     - name: system setup | cron | start and enable cronie daemon
       service:
-        name: cron
+        name: "{{ cron_service }}"
         state: started
         enabled: true
 

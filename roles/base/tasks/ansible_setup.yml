@@ -1,49 +1,86 @@
-- name: ansible setup | ensure ansible is the latest version
-  package:
-    name: ansible
-    state: present
+---
+- name: ansible setup
+  tags: ansible
+  block:
+    - name: ansible setup |
+      tags: ansible_pkgs
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        "{{ ansible_packages }}"
 
-- name: ansible setup | install required packages
-  tags: packages
-  package:
-    name:
-    - "{{ dconf_package }}"
-    - "{{ python_psutil_package }}"
+    - name: ansible | setup user
+      tags: sudo
+      block:
+        - name: ansible | create group
+          group:
+            name: ansible
+            state: present
 
-# Note: For Arch, the requirement is met by a dependency of systemd, only necessary on Debian-based
-- name: ansible setup | install acl package
-  tags: packages
-  package:
-    name: acl
-  when: ansible_os_family in debian_oses
+        - name: ansible | create user
+          user:
+            name: ansible
+            group: ansible
+            groups:
+              - ansible
+              - "{{ sudo_group }}"
+            state: present
+            comment: "Ansible"
+            shell: /bin/bash
+          environment:
+            umask: 027
 
-- name: ansible setup | create ansible log file
-  file:
-    path: /var/log/ansible.log
-    owner: ansible
-    group: ansible
-    mode: 0644
-    state: touch
-  changed_when: False
+        - name: ansible | add sudoers file
+          template:
+            src: sudoers.j2
+            dest: /etc/sudoers.d/ansible
+            owner: root
+            group: root
+            mode: 0440
 
-- name: ansible setup | and logrotate config for ansible log file
-  copy:
-    src: files/ansible_setup/logrotate
-    dest: /etc/logrotate.d/ansible
-    owner: root
-    group: root
-    mode: 0644
+        - name: users | add to adm grp if exists
+          tags: adm
+          user:
+            name: ansible
+            groups: "{{ adm_group }}"
+          when: adm_group is defined
 
-- name: ansible setup | remove default ansible directory (/etc/ansible) from host
-  file:
-    path: /etc/ansible
-    state: absent
+    - name: ansible setup | create ansible log file
+      tags: ansible_logs
+      file:
+        path: /var/log/ansible.log
+        owner: ansible
+        group: ansible
+        mode: 0644
+        state: touch
+      changed_when: False
 
-- name: ansible setup | generate provision script from template
-  tags: scripts
-  template:
-    src: provision.sh.j2
-    dest: /usr/local/bin/provision
-    owner: root
-    group: root
-    mode: 0755
+    - name: ansible setup | and logrotate config for ansible log file
+      tags: ansible_rotate
+      copy:
+        src: files/ansible_setup/logrotate
+        dest: /etc/logrotate.d/ansible
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: ansible setup | remove default ansible directory (/etc/ansible) from host
+      file:
+        path: /etc/ansible
+        state: absent
+
+    - name: ansible setup | generate provision script from template
+      tags: scripts
+      template:
+        src: provision.sh.j2
+        dest: /usr/local/bin/provision
+        owner: root
+        group: root
+        mode: 0755
+
+    - name: ansible | create group
+      tags: groups
+      group:
+        name: ansible
+        state: present

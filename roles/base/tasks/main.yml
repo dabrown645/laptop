@@ -1,32 +1,32 @@
 ---
-- name: Load distro-specific variables
-  tags: always
-  include_vars: "{{ ansible_distribution }}.yml"
-
 - name: base role
+  tags: base
   block:
-    - name: Verify users exist
-      tags: users
-      block:
-        - import_tasks: users/ansible.yml
-        - import_tasks: users/dabrown.yml
+    - name: Load distro-specific variables
+      tags: always
+      include_vars: "{{ ansible_distribution }}.yml"
 
     - name: Set up the ansible environment
       tags:
-        - ansible
         - ansible_setup
       import_tasks: ansible_setup.yml
+
+    - name: Verify users exist
+      tags: users
+      block:
+        #- import_tasks: users/ansible.yml
+        - import_tasks: users/dabrown.yml
 
     - name: Install base software
       tags: packages
       block:
         - import_tasks: software/repositories.yml
-        - import_tasks: software/packages_development.yml
         - import_tasks: software/packages_cleanup.yml
-        - import_tasks: software/packages_pip.yml
-        - import_tasks: software/packages_utilities.yml
+        #- import_tasks: software/packages_development.yml
+        #- import_tasks: software/packages_pip.yml
+        #- import_tasks: software/packages_utilities.yml
 
-    - name: Perform remaining tasks
+    - name: Perform system configutations
       tags:
        - system
       block:

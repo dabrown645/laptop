@@ -1,0 +1,6 @@
+---
+debian_oses: ["Debian", "Ubuntu", "Pop!_OS"]
+archlinux_oses: ["Archlinux"]
+
+global_users: 
+-   

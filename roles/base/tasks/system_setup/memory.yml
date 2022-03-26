@@ -12,7 +12,7 @@
         dest: "/etc/sysctl.conf"
         create: yes
         regexp: "swappiness ="
-        line: "vm.swappiness = 5"
+        line: "vm.swappiness = {{ swappiness_value }}"
       register: swappiness
 
     - name: system setup | memory | apply swappiness
