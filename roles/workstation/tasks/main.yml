@@ -54,38 +54,38 @@
         #- import_tasks: system_setup/tweaks.yml  - not being implemented
       become: true
 
-    - name: software installation
-      tags:
-        - software
-        - packages
-        - install
-      block:
-        - import_tasks: software/audacious.yml
-        - import_tasks: software/audacity.yml
-        #- import_tasks: software/authy.yml       - no package
-        - import_tasks: software/brave.yml
-        - import_tasks: software/bitwarden.yml
-        - import_tasks: software/calibre.yml
-        - import_tasks: software/caffeine.yml
-        - import_tasks: software/chromium.yml
-        - import_tasks: software/codecs.yml
-        - import_tasks: software/darktable.yml
-        - import_tasks: software/docker.yml
-        - import_tasks: software/enpass.yml
-        - import_tasks: software/firefox.yml
-        - import_tasks: software/google_chrome.yml
-        - import_tasks: software/joplin.yml
-        - import_tasks: software/kdenlive.yml
-        - import_tasks: software/keepassxc.yml
-        - import_tasks: software/inkscape.yml
-        - import_tasks: software/libreoffice.yml
-        - import_tasks: software/lutris.yml
-        - import_tasks: software/misc_games.yml
-        - import_tasks: software/misc_packages.yml
-        - import_tasks: software/openshot.yml
-        - import_tasks: software/protonvpn.yml
-        - import_tasks: software/solaar.yml
-        - import_tasks: software/thunderbird.yml
-        - import_tasks: software/virtualbox.yml
-        - import_tasks: software/zoom.yml
-      become: true
+#    - name: software installation
+#      tags:
+#        - software
+#        - packages
+#        - install
+#      block:
+#        - import_tasks: software/audacious.yml
+#        - import_tasks: software/audacity.yml
+#        #- import_tasks: software/authy.yml       - no package
+#        - import_tasks: software/brave.yml
+#        - import_tasks: software/bitwarden.yml
+#        - import_tasks: software/calibre.yml
+#        - import_tasks: software/caffeine.yml
+#        - import_tasks: software/chromium.yml
+#        - import_tasks: software/codecs.yml
+#        - import_tasks: software/darktable.yml
+#        - import_tasks: software/docker.yml
+#        - import_tasks: software/enpass.yml
+#        - import_tasks: software/firefox.yml
+#        - import_tasks: software/google_chrome.yml
+#        - import_tasks: software/joplin.yml
+#        - import_tasks: software/kdenlive.yml
+#        - import_tasks: software/keepassxc.yml
+#        - import_tasks: software/inkscape.yml
+#        - import_tasks: software/libreoffice.yml
+#        - import_tasks: software/lutris.yml
+#        - import_tasks: software/misc_games.yml
+#        - import_tasks: software/misc_packages.yml
+#        - import_tasks: software/openshot.yml
+#        - import_tasks: software/protonvpn.yml
+#        - import_tasks: software/solaar.yml
+#        - import_tasks: software/thunderbird.yml
+#        - import_tasks: software/virtualbox.yml
+#        - import_tasks: software/zoom.yml
+#      become: true

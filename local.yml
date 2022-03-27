@@ -31,19 +31,9 @@
   roles:
     - base
     
-#  -name: Debug information
-#    debug:
-#      msg: "ansible_distribution - {{ archlinux_oses }}"
-#
-## run roles
-#- hosts: all
-#  tags: base
-#  become: true
-#  roles:
-#    - base
-#
-#- hosts: workstation
-#  tags: workstation
-#  become: true
-#  roles:
-#    - workstation
+# run roles
+- hosts: workstation
+  tags: workstation
+  become: true
+  roles:
+    - workstation
