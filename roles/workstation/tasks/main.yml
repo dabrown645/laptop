@@ -7,6 +7,7 @@
       include_vars: "{{ ansible_distribution }}.yml"
 
     - name: configure gnome desktop environment
+      tags: gnome
       block:
         - name: install packages
           import_tasks: desktop_environments/gnome/packages.yml
@@ -29,7 +30,16 @@
             - import_tasks: desktop_environments/gnome/terminal.yml
           become_user: dabrown
       become: true
-      when: gnome
+      when: desktop == "GNOME"
+    
+    - name: configure kde desktop environment
+      tags: kde
+      block:
+        - name: kde install packages
+          debug:
+            msg: "install KDE packages"
+      become: true"
+      when: desktop == "KDE"
 
     #- name: configure mate desktop environment
       #block:
@@ -54,13 +64,13 @@
         #- import_tasks: system_setup/tweaks.yml  - not being implemented
       become: true
 
-#    - name: software installation
-#      tags:
-#        - software
-#        - packages
-#        - install
-#      block:
-#        - import_tasks: software/audacious.yml
+    - name: software installation
+      tags:
+        - software
+        - packages
+        - install
+      block:
+        - import_tasks: software/audacious.yml
 #        - import_tasks: software/audacity.yml
 #        #- import_tasks: software/authy.yml       - no package
 #        - import_tasks: software/brave.yml
@@ -88,4 +98,4 @@
 #        - import_tasks: software/thunderbird.yml
 #        - import_tasks: software/virtualbox.yml
 #        - import_tasks: software/zoom.yml
-#      become: true
+      become: true

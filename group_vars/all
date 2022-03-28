@@ -5,6 +5,8 @@ debian_oses:
   - "Pop!_OS"
 archlinux_oses:
   - "ArchLinux"
+  
+desktop: "{{ lookup('env', 'XDG_CURRENT_DESKTOP') | regex_replace('^(.*):','') | upper }}"
 
 #global_users: 
-#-   
+#-

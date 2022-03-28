@@ -6,6 +6,7 @@
       package:
         name:
           - audacious
+          - audacious-plugins
         state: present
       when: audacious|bool
 
@@ -13,5 +14,6 @@
       package:
         name:
           - audacious
+          - audacious-plugins
         state: absent
       when: not audacious|bool
