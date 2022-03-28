@@ -38,7 +38,7 @@
         - name: kde install packages
           debug:
             msg: "install KDE packages"
-      become: true"
+      #become: true"
       when: desktop == "KDE"
 
     #- name: configure mate desktop environment
@@ -70,8 +70,8 @@
         - packages
         - install
       block:
-        - import_tasks: software/audacious.yml
-#        - import_tasks: software/audacity.yml
+        #- import_tasks: software/audacious.yml
+        - import_tasks: software/audacity.yml
 #        #- import_tasks: software/authy.yml       - no package
 #        - import_tasks: software/brave.yml
 #        - import_tasks: software/bitwarden.yml
