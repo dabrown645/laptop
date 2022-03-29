@@ -6,6 +6,8 @@ brave_packages:
 bzip2_package:
   - bzip2
   - bzip2-doc
+calibre_packages:
+  - calibre
 cryptsetup_package: cryptsetup-bin
 cups_package: cups-daemon
 docker_package:

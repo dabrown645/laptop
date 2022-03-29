@@ -1,17 +1,19 @@
 ---
 - name: calibre
   tags: calibre
-  vars: 
-    pkg_name: com.calibre_ebook.calibre
   block:
     - name: software | calibre | install
-      flatpak:
-        name: "{{ pkg_name }}"
+      package:
+        name: "{{ item }}"
         state: present
+      loop:
+        - "{{ calibre_packages }}"
       when: calibre|bool
 
     - name: software | calibre | remove
-      flatpak:
-        name: "{{ pkg_name }}"
+      package:
+        name: "{{ item }}"
         state: absent
+      loop:
+        - "{{ calibre_packages }}"
       when: not calibre|bool
