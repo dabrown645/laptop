@@ -11,7 +11,7 @@ microcode_amd_install: false
 microcode_intel_install: true
 
 # Application selection
-
+ 
 audacious: false
 audacity: false
 authy: true
