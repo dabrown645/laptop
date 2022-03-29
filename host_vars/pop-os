@@ -18,8 +18,8 @@ authy: true
 autofs: false
 bitwarden: false
 brave: true
-calibre: true
 caffeine: false
+calibre: true
 chromium: false
 codecs: true
 darktable: true
