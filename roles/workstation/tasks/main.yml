@@ -77,8 +77,8 @@
         #- import_tasks: software/brave.yml
         #- import_tasks: software/caffeine.yml
         #- import_tasks: software/calibre.yml
-        - import_tasks: software/chromium.yml
-#        - import_tasks: software/codecs.yml
+        #- import_tasks: software/chromium.yml
+        - import_tasks: software/codecs.yml
 #        - import_tasks: software/darktable.yml
 #        - import_tasks: software/docker.yml
 #        - import_tasks: software/enpass.yml

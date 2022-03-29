@@ -33,8 +33,9 @@ font_liberation_package:
 font_noto_emoji_package: fonts-noto-color-emoji
 font_terminus_package: xfonts-terminus
 gdm_package: gdm3
-gstreamer_libav_package: gstreamer1.0-libav
-gstreamer_plugins_bad_package: gstreamer1.0-plugins-bad
+gstreamer_packages:
+  - gstreamer1.0-libav
+  - gstreamer1.0-plugins-bad
 hunspell_package: hunspell-en-us
 hyphen_package: hyphen-en-us
 jay_user_group: jay

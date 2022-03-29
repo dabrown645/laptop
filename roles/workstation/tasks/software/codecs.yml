@@ -4,16 +4,16 @@
   block:
     - name: software | codecs | install
       package:
-        name:
-          - "{{ gstreamer_libav_package }}"
-          - "{{ gstreamer_plugins_bad_package }}"
+        name: "{{ item }}"
         state: present
+      loop:
+        - "{{ gstreamer_packages }}"
       when: codecs|bool
 
     - name: software | codecs | remove
       package:
-        name:
-          - "{{ gstreamer_libav_package }}"
-          - "{{ gstreamer_plugins_bad_package }}"
+        name: "{{ item }}"
         state: present
+      loop:
+        - "{{ gstreamer_packages }}"
       when: not codecs|bool
