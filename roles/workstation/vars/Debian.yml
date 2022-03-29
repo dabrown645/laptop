@@ -1,5 +1,8 @@
 autofs_master_config: /etc/auto.master
 autofs_nfs_config: /etc/auto.nfs
+brave_packages:
+  - brave-browser
+  - brave-keyring
 bzip2_package:
   - bzip2
   - bzip2-doc

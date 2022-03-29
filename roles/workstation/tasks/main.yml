@@ -71,9 +71,9 @@
         - install
       block:
         #- import_tasks: software/audacious.yml
-        - import_tasks: software/audacity.yml
-#        #- import_tasks: software/authy.yml       - no package
-#        - import_tasks: software/brave.yml
+        #- import_tasks: software/audacity.yml
+#        #- import_tasks: software/authy.yml       - package on arch snapd on ubuntu
+        - import_tasks: software/brave.yml
 #        - import_tasks: software/bitwarden.yml
 #        - import_tasks: software/calibre.yml
 #        - import_tasks: software/caffeine.yml
