@@ -4,14 +4,16 @@
   block:
     - name: software | chromium | install
       package:
-        name:
-          - chromium
+        name: "{{ item }}"
         state: present
+      loop:
+        - "{{ chromium_packages }}"
       when: chromium|bool
 
     - name: software | chromium | remove
       package:
-        name:
-          - chromium
+        name: "{{ item }}"
         state: absent
+      loop:
+        - "{{ chromium_packages }}"
       when: not chromium|bool
