@@ -4,14 +4,18 @@
   block:
     - name: software | libreoffice | install
       package:
-        name: libreoffice
+        name: "{{ item }}"
         state: present
+      loop:
+        - "{{ libreoffice_packages }}"
       when:
         - libreoffice|bool
 
     - name: software | libreoffice | removal
       package:
-        name: libreoffice
+        name: "{{ item }}"
         state: absent
+      loop:
+        - "{{ libreoffice_packages }}"
       when:
         - not libreoffice|bool

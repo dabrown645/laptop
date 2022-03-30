@@ -43,6 +43,8 @@ inkscape_package: inkscape
 kdenlive_packages:
   - kdenlive
 libnotify_package: libnotify-bin
+libreoffice_packages:
+  - libreoffice-fresh
 mpv_package: gnome-mpv
 nethack_package: nethack-console
 network_manager_openvpn_package: network-manager-openvpn

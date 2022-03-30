@@ -44,6 +44,8 @@ inkscape_package: inkscape
 kdenlive_packages:
   - kdenlive
   - kdenlive-data
+libreoffice_packages:
+  - libreoffice
 libnotify_package: libnotify-bin
 mpv_package: gnome-mpv
 nethack_package: nethack-console
