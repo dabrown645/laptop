@@ -76,14 +76,14 @@
 #        - import_tasks: software/bitwarden.yml    - package on arch flatpak on ubuntu
         #- import_tasks: software/brave.yml
         #- import_tasks: software/caffeine.yml
-        - import_tasks: software/calibre.yml
+        #- import_tasks: software/calibre.yml
         #- import_tasks: software/chromium.yml
         #- import_tasks: software/codecs.yml
         #- import_tasks: software/darktable.yml
         #- import_tasks: software/docker.yml
 #        - import_tasks: software/enpass.yml
         #- import_tasks: software/firefox.yml
-#        - import_tasks: software/google_chrome.yml
+        - import_tasks: software/google_chrome.yml
 #        - import_tasks: software/inkscape.yml
 #        - import_tasks: software/joplin.yml
 #        - import_tasks: software/kdenlive.yml

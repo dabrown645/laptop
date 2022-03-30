@@ -33,6 +33,8 @@ font_liberation_package:
 font_noto_emoji_package: fonts-noto-color-emoji
 font_terminus_package: xfonts-terminus
 gdm_package: gdm3
+google_chrome_packages:
+  - google-chrome-stable
 gstreamer_packages:
   - gstreamer1.0-libav
   - gstreamer1.0-plugins-bad

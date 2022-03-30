@@ -30,7 +30,7 @@ firefox: true
 #foliate: false     # flatpak ebook viewer
 games: true
 glimpse: true       # need to add
-google_chrome: true
+google_chrome: false
 joplin: true
 kdenlive: false
 keepassxc: false

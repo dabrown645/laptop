@@ -7,11 +7,14 @@ URL="https://github.com/dabrown645/laptop.git"
 
 # Install Ansible (ansible-pull and Git
 if $(type -P apt > /dev/null) ; then
+    sudo apt update
+    sudo apt upgrade
     (which ansible-pull >/dev/null \
         && which python3 >/dev/null \
         && which psutil >/dev/null \
-        && which git >/dev/null) || (sudo apt update && sudo apt install -y ansible git python3 python3-psutil)
+        && which git >/dev/null) || sudo apt install -y ansible git python3 python3-psutil
 elif $(type -P pacman > /dev/null) ; then
+    sudo pacman -Syu
     (which ansible-pull >/dev/null \
          && which git >/dev/null) || (sudo pacman -Syu ansible git)
 elif $(type -P zypper >/dev/null); then
