@@ -4,22 +4,18 @@
   block:
     - name: software | openshot | install
       package:
-        name:
-          - openshot
-          - openshot-doc
-          - openshot-qt
-          - openshot-qt-doc
+        name: "{{ openshot_packages }}"
         state: present
+      loop:
+        - "{{ openshot_packages }}"
       when:
         - openshot|bool
 
     - name: software | openshot | remove
       package:
-        name:
-          - openshot
-          - openshot-doc
-          - openshot-qt
-          - openshot-qt-doc
+        name: "{{ openshot_packages }}"
         state: absent
+      loop:
+        - "{{ openshot_packages }}"
       when:
         - not openshot|bool

@@ -51,6 +51,8 @@ network_manager_openvpn_package: network-manager-openvpn
 network_manager_package: network-manager
 network_manager_pptp_package: network-manager-pptp
 network_manager_vpnc_package: network-manager-vpnc
+openshot_packages:
+  - openshot
 p7zip_package:
   - p7zip-full
   - p7zip-rar

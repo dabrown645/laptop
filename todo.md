@@ -7,4 +7,9 @@
     1. authy
     1. bitwarden
     1. joplin
-1.  Look at brave and enpass installes
+1.  Handle packages with private repos
+    1. brave
+    1. enpass
+    1. lustris
+    1. vscode
+    1. virtualbox

@@ -88,11 +88,11 @@
 #        - import_tasks: software/joplin.yml
         #- import_tasks: software/kdenlive.yml
         #- import_tasks: software/keepassxc.yml
-        - import_tasks: software/libreoffice.yml
+        #- import_tasks: software/libreoffice.yml
 #        - import_tasks: software/lutris.yml
 #        - import_tasks: software/misc_games.yml
 #        - import_tasks: software/misc_packages.yml
-#        - import_tasks: software/openshot.yml
+        - import_tasks: software/openshot.yml
 #        - import_tasks: software/protonvpn.yml
 #        - import_tasks: software/solaar.yml
 #        - import_tasks: software/thunderbird.yml
