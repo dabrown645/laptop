@@ -31,10 +31,10 @@ firefox: true
 games: true
 glimpse: true       # need to add
 google_chrome: false
+inkscape: true
 joplin: true
 kdenlive: false
 keepassxc: false
-inkscape: true
 libreoffice: true
 lutris: false
 #mattermost: true     # chat app

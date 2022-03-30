@@ -40,6 +40,7 @@ gstreamer_packages:
   - gstreamer1.0-plugins-bad
 hunspell_package: hunspell-en-us
 hyphen_package: hyphen-en-us
+inkscape_package: inkscape
 jay_user_group: jay
 libnotify_package: libnotify-bin
 mpv_package: gnome-mpv
