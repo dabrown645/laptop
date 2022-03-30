@@ -13,50 +13,49 @@ microcode_intel_install: true
 
 # Application selection
 
-audacious: false
-audacity: false
-authy: true
-autofs: false
-bitwarden: false
-brave: true
-caffeine: false
-calibre: true
-chromium: false
-codecs: true
-darktable: true
-docker: true
-enpass: true
-firefox: true
-#foliate: false     # flatpak ebook viewer
-games: true
-glimpse: true       # need to add
-google_chrome: true
-joplin: true
-kdenlive: false
-keepassxc: false
-inkscape: true
-libreoffice: true
-lutris: false
-#mattermost: true     # chat app
-misc_packages: true
-openshot: false
-#packer: true      # need to add
-protonvpn: true
-#signal: true      # chat app
-solaar: false
-#spotify: true     # need to add
-#steam: truea       # need to add
-#syncthing: true    # need to add
-#terraform: true    # need to add
-thunderbird: true
-#todoist: true      # flatpak todo list
-#ulauncher: false   # need to add
-#vagrant: true       # need to add
-virtualbox: true
-#vivaldi: true      # need to add
-#vlc: true          # need to add
-#xonotic: true      # need to add
-zoom: true
+audacious: false            # audio player
+audacity: false             # audio editor and recorder
+authy: true                 # two-factor authentication
+autofs: false               # auto nfs mounting
+bitwarden: false            # password manager
+brave: true                 # web browser
+caffeine: false             # disables screen savers
+calibre: true               # e-book manager reader
+chromium: false             # web browser
+codecs: true                # gstreamer?
+darktable: true             # photograph workflow (lighttable/darkroom)
+docker: true                # container management
+enpass: true                # password manager
+firefox: true               # web browser
+#foliate: false             # ebook viewer (flatpak/snap)
+games: true                 # varity of games
+#glimpse: true               # photo editor
+google_chrome: true         # web browser
+joplin: true                # note taking 
+kdenlive: false             # video editing
+keepassxc: false            # password manager
+inkscape: true              # vector graphics editor
+libreoffice: true           # office suite
+lutris: false               # gaming platform
+misc_games: false           # misc games
+misc_packages: true         # misc packages
+openshot: false             # video editor
+#packer: truei              # build automated machine images      # need to add
+protonvpn: true             # vpn client
+#signal: true                # chat app
+quickemu: true              # virtual machine environment
+solaar: false               # Logitech device mgr (keyboard/mice/trackpads)
+#spotify: true               # listen to spotify # need to add
+#steam: truea                # gaming platform   # need to add
+#terraform: true             # infrastructure as code (HashiCorp) # need to add
+thunderbird: true           # email managemnet
+#ulauncher: false            # application launcher   # need to add
+#vagrant: true               # virtual machine environment (HashiCorp)       # need to add
+virtualbox: true            # virtual machine environment (Oracle)
+#vivaldi: true               # web browser      # need to add
+#vlc: true                   # media player           # need to add
+#xonotic: true               # arena-stype first person shooter game      # need to add
+zoom: true                  # video conferancing
 
 # themes
 theme_pop_os: true

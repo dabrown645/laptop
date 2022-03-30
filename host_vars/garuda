@@ -46,10 +46,8 @@ protonvpn: true
 solaar: false
 #spotify: true     # need to add
 #steam: truea       # need to add
-#syncthing: true    # need to add
 #terraform: true    # need to add
 thunderbird: true
-#todoist: true      # flatpak todo list
 #ulauncher: false   # need to add
 #vagrant: true       # need to add
 virtualbox: true

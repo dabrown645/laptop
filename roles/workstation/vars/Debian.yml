@@ -41,7 +41,9 @@ gstreamer_packages:
 hunspell_package: hunspell-en-us
 hyphen_package: hyphen-en-us
 inkscape_package: inkscape
-jay_user_group: jay
+kdenlive_packages:
+  - kdenlive
+  - kdenlive-data
 libnotify_package: libnotify-bin
 mpv_package: gnome-mpv
 nethack_package: nethack-console
