@@ -86,8 +86,8 @@
         #- import_tasks: software/google_chrome.yml
         #- import_tasks: software/inkscape.yml
 #        - import_tasks: software/joplin.yml
-        - import_tasks: software/kdenlive.yml
-#        - import_tasks: software/keepassxc.yml
+        #- import_tasks: software/kdenlive.yml
+        - import_tasks: software/keepassxc.yml
 #        - import_tasks: software/libreoffice.yml
 #        - import_tasks: software/lutris.yml
 #        - import_tasks: software/misc_games.yml
