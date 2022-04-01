@@ -46,7 +46,7 @@ protonvpn: true             # vpn client
 quickemu: true              # virtual machine environment
 solaar: false               # Logitech device mgr (keyboard/mice/trackpads)
 #spotify: true               # listen to spotify # need to add
-#steam: truea                # gaming platform   # need to add
+#steam: true                 # gaming platform   # need to add
 #terraform: true             # infrastructure as code (HashiCorp) # need to add
 thunderbird: true           # email managemnet
 #ulauncher: false            # application launcher   # need to add

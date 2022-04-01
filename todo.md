@@ -13,3 +13,4 @@
     1. lustris
     1. vscode
     1. virtualbox
+    1. protonvpn
