@@ -14,7 +14,7 @@
           - pacman    # default package manager
           - pamac     # wrapper around pacman more like apt
           - pamac-aur # AUR helper for pamac
-          - pamac-all # everything all in one
+          #- pamac-all # everything all in one
           - aura      # AUR helper
           - paru      # AUR helper
   when: ansible_distribution == "Archlinux"
