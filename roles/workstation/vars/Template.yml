@@ -1,0 +1,77 @@
+autofs_master_config: /etc/auto.master
+autofs_nfs_config: /etc/auto.nfs
+brave_packages:
+  - brave
+calibre_packages:
+  - calibre
+cryptsetup_package: cryptsetup-bin
+docker_package:
+  - docker
+  - docker-compose
+  - docker-machine
+  - docker-scan
+gdm_package: gdm3
+google_chrome_packages:
+  - google-chrome
+gstreamer_packages:
+  - gstreamer
+  - gstreamer-docs
+  - gstreamer-vaapi
+inkscape_package: inkscape
+kdenlive_packages:
+  - kdenlive
+libreoffice_packages:
+  - libreoffice-fresh
+openshot_packages:
+  - openshot
+virtualbox_packages:
+  - virtualbox
+  - virtualbox-guest-iso
+  - virtualbox-guest-utils
+
+# misc_packages 
+bzip2_package:
+  - bzip2
+  - bzip2-doc
+chromium_packages:
+  - chromium
+cups_package: cups-daemon
+font_fira_mono_package: fonts-firacode
+font_hack_ttf_package: fonts-hack-ttf
+font_inconsolata_package: fonts-inconsolata
+font_noto_emoji_package: fonts-noto-color-emoji
+font_terminus_package: xfonts-terminus
+hunspell_package: hunspell-en-us
+hyphen_package: hyphen-en-us
+network_manager_openvpn_package: network-manager-openvpn
+network_manager_package: network-manager
+network_manager_pptp_package: network-manager-pptp
+p7zip_package:
+  - p7zip-full
+  - p7zip-rar
+wireless_tools_package: wireless-tools
+wpa_supplicant_package: wpasupplican
+  
+# misc_games
+nethack_package: nethack-console
+
+# fonts
+font_manager_package: font-manager
+font_croscore_package: fonts-croscore
+font_dejavu_package:
+  - fonts-dejavu
+  - fonts-dejavu-extra
+font_ibm_plex_package: fonts-ibm-plex
+font_liberation_package:
+  - fonts-liberation
+  - fonts-liberation2
+    
+# not found
+libnotify_package: libnotify-bin
+mpv_package: gnome-mpv
+network_manager_vpnc_package: network-manager-vpnc
+packer_version: 1.6.5
+ssh_askpass_package: ssh-askpass-gnome
+steam_package: steam
+terraform_version: 0.13.5
+vagrant_version: 2.2.14
