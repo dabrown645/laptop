@@ -1,9 +1,7 @@
 ---
-- name: repositories
-  tags: repositories
+- name: Arch repository settings/packages
+  tags: archsettngs
   block:
-    tags: 
-      - archsettings
     - name: system setup | repositories | add ignored packages for archlinux hosts
       lineinfile:
         dest: /etc/pacman.conf
@@ -19,9 +17,10 @@
           - pamac-all # everything all in one
           - aura      # AUR helper
           - paru      # AUR helper
-
   when: ansible_distribution == "Archlinux"
 
+- name: Debian/Ubuntu repository settings/packages
+  tags: debsettings
   block:
     - name: system setup | repositories | install package management tools (debian-based)
       tags:
