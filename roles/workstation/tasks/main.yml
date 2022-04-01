@@ -94,8 +94,8 @@
 #        - import_tasks: software/misc_packages.yml
         #- import_tasks: software/openshot.yml
 #        - import_tasks: software/protonvpn.yml
-        - import_tasks: software/solaar.yml
-#        - import_tasks: software/thunderbird.yml
+#        - import_tasks: software/solaar.yml
+        - import_tasks: software/thunderbird.yml
 #        - import_tasks: software/virtualbox.yml
 #        - import_tasks: software/zoom.yml
       become: true
