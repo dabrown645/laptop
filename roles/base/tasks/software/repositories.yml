@@ -7,16 +7,41 @@
         dest: /etc/pacman.conf
         regexp: "^#IgnorePkg"
         line: "IgnorePkg = ansible linux linux linux-headers linux-lts linux-lts-headers"
+    
+    #- name: system setup | flatpak
+    #  package: flatpak
+    #  state: present
+    #  when: flatpak|bool
+    
+    #- name: system setup | snapd
+    #  package: snapd
+    #  state: present
+    #  when: snap|bool
+   # 
+    - name: system setup | appimage
+      package:
+      - libappimage
+      - appimagelauncher
+      state: present
+      when: appimage|bool
         
     - name: system_setup | repositories | install package management tools
       package:
         name:
           - pacman    # default package manager
-          - pamac     # wrapper around pacman more like apt
-          - pamac-aur # AUR helper for pamac
-          #- pamac-all # everything all in one
+          - archlinux-appstream-data-pamac
           - aura      # AUR helper
           - paru      # AUR helper
+          - octopi
+      state: present
+      
+    - name: system_setup | pamac-all
+      aur:
+        name: pamac-all
+        dir: /var/lib/ansible
+        user: ansible
+      state: present
+
   when: ansible_distribution == "Archlinux"
 
 - name: Debian/Ubuntu repository settings/packages
