@@ -1,0 +1,53 @@
+# Packages
+ansible_packages:
+  - python3
+  - git
+  - ansible
+    
+# Development packages
+development_packages:
+  - fabric
+  - flake8
+  - git
+  - perl
+  - python3
+  - python-pip
+  - python-pyflakes
+  - python-setuptools
+  - python-virtualenv
+  - python-pipenv
+
+# Editors
+editor_packages:
+  - vim
+  - neovim
+  - neovim-qt
+  - python-pynvim
+    
+# Openssh packages
+openssh_packages:
+  - openssh
+openssh_services:
+  - sshd
+
+amd_microcode_package: amd-ucode
+cron_package: cronie
+cron_service: cronie
+dconf_package: dconf
+dns_utils_package: ldns
+intel_microcode_package: intel-ucode
+lm_sensors_package: i2c-tools
+nfs_client_package: nfs-common
+keychain_package: keychain
+black_package: python-black
+black_doc_package: python-black-doc
+python_psutil_package: psutils
+python_virtualenv_package: python3-virtualenv
+rename_package: rename
+vim_package: vim-nox
+
+# Misc
+sftp_path: /usr/lib/openssh/sftp-server
+sudo_group: "wheel"
+adm_group: "adm,"
+main_user: dabrown

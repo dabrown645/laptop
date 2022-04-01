@@ -2,30 +2,27 @@
 - name: repositories
   tags: repositories
   block:
+    tags: 
+      - archsettings
     - name: system setup | repositories | add ignored packages for archlinux hosts
       lineinfile:
         dest: /etc/pacman.conf
         regexp: "^#IgnorePkg"
         line: "IgnorePkg = ansible linux linux linux-headers linux-lts linux-lts-headers"
-      when: ansible_distribution == "Archlinux"
+        
+    - name: system_setup | repositories | install package management tools
+      package:
+        name:
+          - pacman    # default package manager
+          - pamac     # wrapper around pacman more like apt
+          - pamac-aur # AUR helper for pamac
+          - pamac-all # everything all in one
+          - aura      # AUR helper
+          - paru      # AUR helper
 
-    #- name: system setup | repositories | add sources.list for debian hosts
-    #  tags: non-free
-    #  copy:
-    #    src: distribution_packages/debian_sources.list
-    #    dest: /etc/apt/sources.list
-    #    backup: yes
-    #  notify: apt_update
-    #  when: ansible_distribution in debian_oses
+  when: ansible_distribution == "Archlinux"
 
-    #- name: system setup | repositories | add debian-backports
-    #  tags: backports
-    #  apt_repository:
-    #    repo: deb http://deb.debian.org/debian buster-backports main
-    #    filename: debian-backborts
-    #  notify: apt_update
-    #  when: ansible_distribution == "Debian"
-
+  block:
     - name: system setup | repositories | install package management tools (debian-based)
       tags:
         - system
@@ -35,4 +32,4 @@
           - aptitude
           - software-properties-common
         state: present
-      when: ansible_distribution in debian_oses
+  when: ansible_distribution in debian_oses
