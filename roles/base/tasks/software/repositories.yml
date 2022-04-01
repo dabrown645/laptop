@@ -20,9 +20,10 @@
    # 
     - name: system setup | appimage
       package:
-      - libappimage
-      - appimagelauncher
-      state: present
+        name:
+          - libappimage
+          - appimagelauncher
+        state: present
       when: appimage|bool
         
     - name: system_setup | repositories | install package management tools
@@ -33,7 +34,7 @@
           - aura      # AUR helper
           - paru      # AUR helper
           - octopi
-      state: present
+        state: present
       
     - name: system_setup | pamac-all
       aur:
