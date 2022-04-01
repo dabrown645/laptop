@@ -40,7 +40,7 @@ lutris: false               # gaming platform
 misc_games: false           # misc games
 misc_packages: true         # misc packages
 openshot: false             # video editor
-#packer: truei              # build automated machine images      # need to add
+#packer: truei              # build automated machine images (HashiCorp)   #need to add
 protonvpn: true             # vpn client
 #signal: true                # chat app
 quickemu: true              # virtual machine environment

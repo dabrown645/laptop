@@ -61,8 +61,9 @@ ssh_askpass_package: ssh-askpass-gnome
 steam_package: steam
 terraform_version: 0.13.5
 vagrant_version: 2.2.14
-virtualbox_package:
+virtualbox_packages:
   - virtualbox
-  - virtualbox-guest-additions-iso
+  - virtualbox-guest-iso
+  - virtualbox-guest-utils
 wireless_tools_package: wireless-tools
 wpa_supplicant_package: wpasupplican
