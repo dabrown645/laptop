@@ -1,23 +1,21 @@
 autofs_master_config: /etc/auto.master
 autofs_nfs_config: /etc/auto.nfs
 brave_packages:
-  - brave-browser
-  - brave-keyring
+  - brave
 bzip2_package:
   - bzip2
   - bzip2-doc
 calibre_packages:
   - calibre
 chromium_packages:
-  - chromium-browser
+  - chromium
 cryptsetup_package: cryptsetup-bin
 cups_package: cups-daemon
 docker_package:
   - docker
-  - docker-clean
   - docker-compose
-  - docker-doc
-  - docker.io
+  - docker-machine
+  - docker-scan
 font_manager_package: font-manager
 font_croscore_package: fonts-croscore
 font_dejavu_package:
@@ -34,19 +32,19 @@ font_noto_emoji_package: fonts-noto-color-emoji
 font_terminus_package: xfonts-terminus
 gdm_package: gdm3
 google_chrome_packages:
-  - google-chrome-stable
+  - google-chrome
 gstreamer_packages:
-  - gstreamer1.0-libav
-  - gstreamer1.0-plugins-bad
+  - gstreamer
+  - gstreamer-docs
+  - gstreamer-vaapi
 hunspell_package: hunspell-en-us
 hyphen_package: hyphen-en-us
 inkscape_package: inkscape
 kdenlive_packages:
   - kdenlive
-  - kdenlive-data
-libreoffice_packages:
-  - libreoffice
 libnotify_package: libnotify-bin
+libreoffice_packages:
+  - libreoffice-fresh
 mpv_package: gnome-mpv
 nethack_package: nethack-console
 network_manager_openvpn_package: network-manager-openvpn
@@ -55,9 +53,6 @@ network_manager_pptp_package: network-manager-pptp
 network_manager_vpnc_package: network-manager-vpnc
 openshot_packages:
   - openshot
-  - openshot-doc
-  - openshot-qt
-  - openshot-qt-doc
 p7zip_package:
   - p7zip-full
   - p7zip-rar
@@ -68,8 +63,7 @@ terraform_version: 0.13.5
 vagrant_version: 2.2.14
 virtualbox_packages:
   - virtualbox
-  - virtualbox-guest-additions-iso
+  - virtualbox-guest-iso
   - virtualbox-guest-utils
-  - virtualbox-dkms
 wireless_tools_package: wireless-tools
-wpa_supplicant_package: wpasupplicant
+wpa_supplicant_package: wpasupplican

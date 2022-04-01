@@ -4,20 +4,18 @@
   block:
     - name: software | kdenlive | install
       package:
-        name:
-          - kdenlive
-          - kdenlive-data
-          - kdenlive-dbg
+        name: "{{ item }}"
         state: present
+      loop:
+        - "{{ kdenlive_packages }}"
       when:
       - kdenlive|bool
 
     - name: software | kdenlive | remove
       package:
-        name:
-          - kdenlive
-          - kdenlive-data
-          - kdenlive-dbg
+        name: "{{ item }}"
         state: absent
+      loop:
+        - "{{ kdenlive_packages }}"
       when:
       - not kdenlive|bool

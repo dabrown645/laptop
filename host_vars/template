@@ -1,0 +1,73 @@
+
+branch: main
+
+# ansible configuration
+ansible_cron_minute: "*/15"
+ssh_port: 22
+ssh_users: "dabrown"
+
+# platform-specific
+ansible_python_interpreter: /usr/bin/python3   # used ?
+microcode_amd_install: false
+microcode_intel_install: true
+
+# Application selection
+
+audacious: false            # audio player
+audacity: false             # audio editor and recorder
+authy: true                 # two-factor authentication
+autofs: false               # auto nfs mounting
+bitwarden: false            # password manager
+brave: true                 # web browser
+caffeine: false             # disables screen savers
+calibre: true               # e-book manager reader
+chromium: false             # web browser
+codecs: true                # gstreamer?
+darktable: true             # photograph workflow (lighttable/darkroom)
+docker: true                # container management
+enpass: true                # password manager
+firefox: true               # web browser
+#foliate: false             # ebook viewer (flatpak/snap)
+games: true                 # varity of games
+#glimpse: true               # photo editor
+google_chrome: true         # web browser
+joplin: true                # note taking 
+kdenlive: false             # video editing
+keepassxc: false            # password manager
+inkscape: true              # vector graphics editor
+libreoffice: true           # office suite
+lutris: false               # gaming platform
+misc_games: false           # misc games
+misc_packages: true         # misc packages
+openshot: false             # video editor
+#packer: truei              # build automated machine images (HashiCorp)   #need to add
+protonvpn: true             # vpn client
+#signal: true                # chat app
+quickemu: true              # virtual machine environment
+solaar: false               # Logitech device mgr (keyboard/mice/trackpads)
+#spotify: true               # listen to spotify # need to add
+#steam: true                 # gaming platform   # need to add
+#terraform: true             # infrastructure as code (HashiCorp) # need to add
+thunderbird: true           # email managemnet
+#ulauncher: false            # application launcher   # need to add
+#vagrant: true               # virtual machine environment (HashiCorp)       # need to add
+virtualbox: true            # virtual machine environment (Oracle)
+#vivaldi: true               # web browser      # need to add
+#vlc: true                   # media player           # need to add
+#xonotic: true               # arena-stype first person shooter game      # need to add
+zoom: true                  # video conferancing
+
+# themes
+theme_pop_os: true
+theme_ant: false
+theme_gnome_prof: true
+
+# desktop environment section
+gnome: true
+gnome38: true
+gtk3: true
+mate: false
+
+# gnome desktop packages
+flatpak: true
+snap: false

@@ -1,70 +1,19 @@
 ---
-- name: google chrome
+- name: google_chrome
   tags: google_chrome
   block:
-    - name: software | google-chrome | installation
-      block:
-        - name: software | google-chrome | add repository key
-          apt_key:
-            url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-            state: present
+    - name: software | google_chrome | install
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - "{{ google_chrome_packages }}"
+      when: google_chrome|bool
 
-        - name: software | google-chrome | add repository
-          apt_repository:
-            repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-            filename: google-chrome
-          register: chrome_repo
-
-        - name: software | google-crome | ensure apt list dir exists
-          file:
-            path: /var/lib/apt/lists/
-            state: directory
-            mode: 0755
-
-        - name: software | google-chrome | update sources (repo added or changed)
-          apt:
-            update_cache: yes
-          changed_when: false
-
-        - name: software | google-chrome | install package
-          apt:
-            name: google-chrome-stable
-            state: present
-      when:
-        - google_chrome|bool
-        - ansible_distribution in debian_oses
-      become: yes
-
-    - name: software | google-chrome | remove
-      block:
-        - name: software | google-chrome | add repository key
-          apt_key:
-            url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-            id: E41584AB915EA2D2AF4E3FE0B943304595F1D4E3
-            state: absent
-
-        - name: software | google-chrome | add repository
-          apt_repository:
-            repo: "deb [arch=amd64] http://dll.google.com/linux/chrome/deb/ stable main"
-            filename: google-chrome
-            state: absent
-          register: chrome_repo
-
-        - name: software | google-crome | ensure apt list dir exists
-          file:
-            path: /var/lib/apt/lists/
-            state: directory
-            mode: 0755
-
-        - name: software | google-chrome | update sources (repo added or changed)
-          apt:
-            update_cache: yes
-
-        - name: software | google-chrome | remove package
-          apt:
-            name: google-chrome-stable
-            state: absent
-      when:
-        - not google_chrome|bool
-        - ansible_distribution in debian_oses
-      become: yes
+    - name: software | google_chrome | remove
+      package:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ google_chrome_packages }}"
+      when: not google_chrome|bool

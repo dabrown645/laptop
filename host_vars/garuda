@@ -19,8 +19,8 @@ authy: true
 autofs: false
 bitwarden: false
 brave: true
-calibre: true
 caffeine: false
+calibre: true
 chromium: false
 codecs: true
 darktable: true
@@ -30,11 +30,11 @@ firefox: true
 #foliate: false     # flatpak ebook viewer
 games: true
 glimpse: true       # need to add
-google_chrome: true
+google_chrome: false
+inkscape: true
 joplin: true
 kdenlive: false
 keepassxc: false
-inkscape: true
 libreoffice: true
 lutris: false
 #mattermost: true     # chat app
@@ -46,10 +46,8 @@ protonvpn: true
 solaar: false
 #spotify: true     # need to add
 #steam: truea       # need to add
-#syncthing: true    # need to add
 #terraform: true    # need to add
 thunderbird: true
-#todoist: true      # flatpak todo list
 #ulauncher: false   # need to add
 #vagrant: true       # need to add
 virtualbox: true

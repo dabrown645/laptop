@@ -2,72 +2,20 @@
 - name: virtualbox
   tags: virtualbox
   block:
-    - name: software | virtualbox
-      block:
-        - name: software | virtualbox | install
-          block:
-            - name: software | virtualbox | add key
-              apt_key:
-                url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-                state: present
-
-            - name: software | virtualbox | add repo
-              apt_repository:
-                repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian  {{ ansible_distribution_release }} contrib
-                state: present
-                filename: virtualbox
-
-            - name: software | virtualbox | ensure apt list dir exists
-              file:
-                path: /var/lib/apt/lists/
-                state: directory
-                mode: 0755
-
-            - name: software | virtualbox | update cache
-              apt:
-                update_cache: true
-              changed_when: false
-
-            - name: software | virtualbox | install
-              package:
-                name: "{{ item }}"
-                state: present
-              loop:
-                - "{{ virtualbox_package }}"
-
-          when: virtualbox|bool
-
-        - name: software | virtualbox | remove
-          block:
-            - name: software | virtualbox | remove
-              package:
-                name: "{{ item }}"
-                state: absent
-              loop:
-                - "{{ virtualbox_package }}"
-
-            - name: software | virtualbox | remove key
-              apt_key:
-                url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-                id: CA5D570DDFDB695A0301885765DD8E285368742C
-                state: absent
-
-            - name: software | virtualbox | remove repo
-              apt_repository:
-                repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian  {{ ansible_distribution_release }} contrib
-                state: absent
-                filename: virtualbox
-
-            - name: software | virtualbox | ensure apt list dir exists
-              file:
-                path: /var/lib/apt/lists/
-                state: directory
-                mode: 0755
-
-            - name: software | virtualbox | update cache
-              apt:
-                update_cache: true
-              changed_when: false
-          when: not virtualbox|bool
+    - name: software | virtualbox | install
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - "{{ virtualbox_packages }}"
       when:
-        - ansible_distribution in debian_oses
+        - virtualbox|bool
+
+    - name: software | virtualbox | remove
+      package:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ virtualbox_packages }}"
+      when:
+        - not virtualbox|bool

@@ -11,15 +11,15 @@ microcode_amd_install: false
 microcode_intel_install: true
 
 # Application selection
-
+ 
 audacious: false
 audacity: false
 authy: true
 autofs: false
 bitwarden: false
 brave: true
-calibre: true
 caffeine: false
+calibre: true
 chromium: false
 codecs: true
 darktable: true
@@ -45,10 +45,8 @@ protonvpn: true
 solaar: false
 #spotify: true     # need to add
 #steam: truea       # need to add
-#syncthing: true    # need to add
 #terraform: true    # need to add
 thunderbird: true
-#todoist: true      # flatpak todo list
 #ulauncher: false   # need to add
 #vagrant: true       # need to add
 virtualbox: true
