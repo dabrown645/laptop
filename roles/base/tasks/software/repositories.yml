@@ -41,7 +41,6 @@
         name: pamac-all
         dir: /var/lib/ansible
         user: ansible
-      state: present
 
   when: ansible_distribution == "Archlinux"
 
