@@ -12,13 +12,13 @@
         package:
           name: flatpak
           state: present
-      when: flatpak|bool
+        when: flatpak|bool
    
     #- name: system setup | snapd
     #    package:
     #      name: snapd
     #      state: present
-    #  when: snap|bool
+    #    when: snap|bool
    # 
     - name: system setup | appimage
       package:
