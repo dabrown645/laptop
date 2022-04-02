@@ -5,6 +5,11 @@ ansible_packages:
   - ansible
     
 # Development packages
+# Flags:
+appimage: true
+flatpak: true
+snap: true
+
 development_packages:
   - fabric
   - flake8
