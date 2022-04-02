@@ -47,7 +47,7 @@
         state: directory
         
     - name: system_setup | download ansible module aur
-      get_rul:
+      get_url:
         url: https://raw.githubusercontent.com/kewlfft/ansible-aur/master/plugins/modules/aur.py
         dest: ~/.ansible/plugins/modules
 
