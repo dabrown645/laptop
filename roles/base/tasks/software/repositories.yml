@@ -42,7 +42,7 @@
     #    name: kewlfft.aur
 
     - name: system_setup | pamac-all
-      aur:
+      kewlfft.aur.aur:
         name: pamac-all
         dir: /var/lib/ansible
         user: ansible
