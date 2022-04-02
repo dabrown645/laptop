@@ -34,7 +34,8 @@
           - aura      # AUR helper
           - paru      # AUR helper
           - octopi
-          - pamac-all
+          - bauh
+          #- pamac-all
         state: present
       
     #- name: system_setup | install ansible aur module
