@@ -27,13 +27,14 @@
       when: appimage|bool
         
     - name: system_setup | repositories | install package management tools
-      package:
+      pacman:
         name:
           - pacman    # default package manager
           - archlinux-appstream-data-pamac
           - aura      # AUR helper
           - paru      # AUR helper
           - octopi
+          - pamac-all
         state: present
       
     #- name: system_setup | install ansible aur module
@@ -51,13 +52,13 @@
     #    url: https://raw.githubusercontent.com/kewlfft/ansible-aur/master/plugins/modules/aur.py
     #    dest: ~/.ansible/plugins/modules
 
-    - name: system_setup | pamac-all
-      aur:
-        name: pamac-all
-        use: auto
-        state: present
-      become_user: ansible
-      become: yes
+    #- name: system_setup | pamac-all
+    #  aur:
+    #    name: pamac-all
+    #    use: auto
+    #    state: present
+    #  become_user: ansible
+    #  become: yes
 
   when: ansible_distribution == "Archlinux"
 
