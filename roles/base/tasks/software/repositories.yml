@@ -14,12 +14,12 @@
         state: present
       when: flatpak|bool
    
-    #- name: system setup | snapd
-    #  package:
-    #    name: snapd
-    #    state: present
-    #  when: snap|bool
-   # 
+    - name: system setup | snapd
+      package:
+        name: snapd
+        state: present
+      when: snap|bool
+
     - name: system setup | appimage
       package:
         name:
@@ -33,6 +33,7 @@
         name:
           - pacman    # default package manager
           - archlinux-appstream-data-pamac
+          - pamac-aur
           - aura      # AUR helper
           - paru      # AUR helper
           - octopi
