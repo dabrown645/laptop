@@ -55,7 +55,7 @@
       aur:
         name: pamac-all
         use: auto
-        dir: /var/lib/ansible
+        state: present
       become_user: ansible
       become: yes
 
