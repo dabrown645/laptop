@@ -36,6 +36,11 @@
           - octopi
         state: present
       
+    - name: system_setup | install ansible aur module
+      community.general.ansible_galaxy_install:
+        type: collection
+        name: kewlfft.aur
+        
     - name: system_setup | pamac-all
       aur:
         name: pamac-all
