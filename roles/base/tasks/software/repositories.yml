@@ -9,16 +9,16 @@
         line: "IgnorePkg = ansible linux linux linux-headers linux-lts linux-lts-headers"
     
     - name: system setup | flatpak
-        package:
-          name: flatpak
-          state: present
-        when: flatpak|bool
+      package:
+        name: flatpak
+        state: present
+      when: flatpak|bool
    
     #- name: system setup | snapd
-    #    package:
-    #      name: snapd
-    #      state: present
-    #    when: snap|bool
+    #  package:
+    #    name: snapd
+    #    state: present
+    #  when: snap|bool
    # 
     - name: system setup | appimage
       package:
