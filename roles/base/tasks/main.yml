@@ -14,7 +14,7 @@
     - name: Verify users exist
       tags: users
       block:
-        #- import_tasks: users/ansible.yml
+        - import_tasks: users/ansible.yml
         - import_tasks: users/dabrown.yml
 
     - name: Install base software
