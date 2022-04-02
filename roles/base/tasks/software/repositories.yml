@@ -40,9 +40,19 @@
     #  community.general.ansible_galaxy_install:
     #    type: collection
     #    name: kewlfft.aur
+    
+    - name: system_setup | create ansible module dir
+      file:
+        path: ~/.ansible/plugins/modules
+        state: directory
+        
+    - name: system_setup | download ansible module aur
+      get_rul:
+        url: https://raw.githubusercontent.com/kewlfft/ansible-aur/master/plugins/modules/aur.py
+        dest: ~/.ansible/plugins/modules
 
     - name: system_setup | pamac-all
-      kewlfft.aur.aur:
+      aur:
         name: pamac-all
         dir: /var/lib/ansible
         user: ansible
