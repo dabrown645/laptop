@@ -31,9 +31,9 @@
   roles:
     - base
     
-## run roles
-#- hosts: workstation
-#  tags: workstation
-#  become: true
-#  roles:
-#    - workstation
+# run roles
+- hosts: workstation
+  tags: workstation
+  become: true
+  roles:
+    - workstation
