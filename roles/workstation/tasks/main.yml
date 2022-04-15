@@ -74,7 +74,7 @@
         - import_tasks: software/audacity.yml
 #        #- import_tasks: software/authy.yml       - package on arch snapd on ubuntu
 #        - import_tasks: software/bitwarden.yml    - package on arch flatpak on ubuntu
-        - import_tasks: software/brave.yml
+        #- import_tasks: software/brave.yml
         - import_tasks: software/caffeine.yml
         - import_tasks: software/calibre.yml
         - import_tasks: software/chromium.yml
